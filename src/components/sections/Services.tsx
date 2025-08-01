@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, FileCheck, Building, Scale } from "lucide-react";
-import complianceImage from "@/assets/compliance-services.jpg";
-import corporateImage from "@/assets/corporate-services.jpg";
+import complianceImage from "@/assets/compliance-services-new.jpg";
+import corporateImage from "@/assets/corporate-services-new.jpg";
 import licenseImage from "@/assets/license-services.jpg";
 
 const Services = () => {

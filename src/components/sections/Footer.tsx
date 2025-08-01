@@ -57,11 +57,13 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-sm text-white/80">
                 <Phone className="h-4 w-4 mr-3 text-chip-gold" />
-                +1 (555) 123-4567
+                +357 24 030 500
               </div>
               <div className="flex items-center text-sm text-white/80">
                 <MapPin className="h-4 w-4 mr-3 text-chip-gold" />
-                123 Innovation Drive, Tech District
+                United Nations Street, 44<br />
+                Orthodoxou Tower, 3rd-4th Floor<br />
+                6042, Larnaka, Cyprus
               </div>
             </div>
           </div>

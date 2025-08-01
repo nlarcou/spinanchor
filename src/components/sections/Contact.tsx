@@ -46,9 +46,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">Business hours</p>
-                <p className="font-medium text-foreground">24 250024</p>
+                <p className="font-medium text-foreground">+357 24 030 500</p>
                 <p className="text-muted-foreground mt-4 mb-2">Direct Line</p>
-                <p className="font-medium text-foreground">24 250024</p>
+                <p className="font-medium text-foreground">+357 24 030 500</p>
               </CardContent>
             </Card>
 
@@ -62,8 +62,9 @@ const Contact = () => {
               <CardContent>
                 <p className="text-muted-foreground mb-2">Headquarters</p>
                 <p className="font-medium text-foreground">
-                  Inomenon Ethnon<br />
-                  Larnaca 6042<br />
+                  United Nations Street, 44<br />
+                  Orthodoxou Tower, 3rd-4th Floor<br />
+                  6042, Larnaka<br />
                   Cyprus
                 </p>
               </CardContent>
