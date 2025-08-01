@@ -23,7 +23,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <img 
               src={spinAnchorLogo}
-              alt="SpinAnchor" 
+              alt="SpinAnchor Global" 
               className="h-12 w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
             />
           </div>
