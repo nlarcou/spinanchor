@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import spinAnchorLogo from "@/assets/spinanchor-logo-horizontal.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,15 +20,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
-              src="/lovable-uploads/logo-transparent.png" 
-              alt="SpinAnchor Monogram" 
-              className="h-10 w-auto drop-shadow-md"
+              src={spinAnchorLogo}
+              alt="SpinAnchor" 
+              className="h-12 w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
             />
-            <span className="text-xl font-bold text-foreground tracking-tight">
-              SpinAnchor
-            </span>
           </div>
 
           {/* Desktop Navigation */}
