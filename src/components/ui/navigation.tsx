@@ -21,7 +21,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/2845fdf9-08fa-4234-a5d7-38128af2b03a.png" 
+              src="/lovable-uploads/a86ab54e-6f70-4836-a48f-715374ea7985.png" 
               alt="SpinAnchor" 
               className="h-16 w-auto"
             />
