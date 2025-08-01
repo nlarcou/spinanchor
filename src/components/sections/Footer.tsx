@@ -43,7 +43,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/f5c94f01-7800-48b9-9386-07f91f497468.png"
                 alt="SpinAnchor Global"
-                className="h-10 w-auto"
+                className="h-18 w-auto"
               />
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
