@@ -6,37 +6,37 @@ const WhyChooseUs = () => {
     {
       icon: Award,
       title: "Industry Experts",
-      description: "Our team brings years of specialized experience across multiple industries and technologies."
+      description: "Our team brings years of specialized experience in iGaming compliance and regulatory affairs."
     },
     {
       icon: Globe2,
       title: "Global Network",
-      description: "Worldwide presence with local expertise, ensuring seamless service delivery anywhere."
-    },
-    {
-      icon: Clock,
-      title: "Rapid Delivery",
-      description: "Fast turnaround times without compromising on quality or attention to detail."
-    },
-    {
-      icon: Shield,
-      title: "Secure & Compliant",
-      description: "Enterprise-grade security and full regulatory compliance across all our services."
+      description: "Offices in Curaçao, Malta, the Netherlands, and Cyprus with worldwide expertise."
     },
     {
       icon: Users,
-      title: "Dedicated Support",
-      description: "24/7 customer support with dedicated account managers for personalized service."
+      title: "Personal Attention",
+      description: "Dedicated account managers providing personalized service tailored to your business needs."
+    },
+    {
+      icon: Clock,
+      title: "Around-the-Clock Service",
+      description: "24/7 support ensuring your business operations continue seamlessly across time zones."
+    },
+    {
+      icon: Shield,
+      title: "Time and Hassle Saving",
+      description: "We handle complex compliance requirements so you can focus on growing your business."
     },
     {
       icon: Lightbulb,
-      title: "Innovation First",
-      description: "Cutting-edge solutions using the latest technologies and industry best practices."
+      title: "Customized Services",
+      description: "Tailored solutions designed specifically for your unique business requirements and goals."
     },
     {
       icon: HeartHandshake,
-      title: "Trusted Partnership",
-      description: "Building long-term relationships based on trust, transparency, and mutual success."
+      title: "A-Z Services",
+      description: "Complete end-to-end solutions from licensing to ongoing compliance and corporate services."
     }
   ];
 
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
             </h3>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Seven key reasons why businesses worldwide trust SpinAnchor as their preferred 
-              digital solutions and corporate services provider:
+              iGaming compliance and corporate services provider:
             </p>
             
             <div className="relative">

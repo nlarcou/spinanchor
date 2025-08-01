@@ -15,7 +15,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your business? Let's discuss how SpinAnchor can help you achieve your goals.
+            Ready to grow your online gaming business? Let's discuss how SpinAnchor can help you achieve compliance and success.
           </p>
         </div>
 
@@ -46,9 +46,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">Business hours</p>
-                <p className="font-medium text-foreground">+1 (555) 123-4567</p>
-                <p className="text-muted-foreground mt-4 mb-2">24/7 Support</p>
-                <p className="font-medium text-foreground">+1 (555) 987-6543</p>
+                <p className="font-medium text-foreground">24 250024</p>
+                <p className="text-muted-foreground mt-4 mb-2">Direct Line</p>
+                <p className="font-medium text-foreground">24 250024</p>
               </CardContent>
             </Card>
 
@@ -62,9 +62,9 @@ const Contact = () => {
               <CardContent>
                 <p className="text-muted-foreground mb-2">Headquarters</p>
                 <p className="font-medium text-foreground">
-                  123 Innovation Drive<br />
-                  Tech District, TC 12345<br />
-                  United States
+                  Inomenon Ethnon<br />
+                  Larnaca 6042<br />
+                  Cyprus
                 </p>
               </CardContent>
             </Card>

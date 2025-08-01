@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import heroImage from "@/assets/hero-igaming.jpg";
 
 const Hero = () => {
   return (
@@ -15,7 +16,7 @@ const Hero = () => {
               WE TAKE{" "}
               <span className="relative">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  THE COMPLEX
+                  THE BORING
                 </span>
               </span>
               <br />
@@ -23,11 +24,11 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed">
-              Grow your business with our personalized digital solutions and corporate services.
+              Grow your online gaming business with our personalized compliance and corporate services.
             </p>
             
             <p className="text-base text-white/80 mb-8 leading-relaxed">
-              From strategy to implementation, we ensure your business stays ahead of the curve, 
+              From setup to licensing, we ensure your business stays compliant with regulations, 
               saving you time, money, and energy.
             </p>
             
@@ -55,8 +56,8 @@ const Hero = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-elegant">
               <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Professional team collaborating"
+                src={heroImage}
+                alt="Professional iGaming compliance and licensing services"
                 className="w-full h-[500px] object-cover"
               />
               {/* Overlay gradient */}
@@ -65,10 +66,10 @@ const Hero = () => {
             
             {/* Floating Elements */}
             <div className="absolute -top-6 -right-6 bg-chip-gold text-deep-navy px-4 py-2 rounded-lg font-heading font-semibold shadow-lg">
-              Professional Solutions
+              iGaming Compliance
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white text-deep-navy px-4 py-2 rounded-lg font-heading font-semibold shadow-lg">
-              Trusted by 500+ Companies
+              Licensed & Regulated
             </div>
           </div>
         </div>

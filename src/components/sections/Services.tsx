@@ -1,50 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Code, Shield, Zap, Briefcase, Globe, Users } from "lucide-react";
+import { ArrowRight, FileCheck, Building, Scale } from "lucide-react";
+import complianceImage from "@/assets/compliance-services.jpg";
+import corporateImage from "@/assets/corporate-services.jpg";
+import licenseImage from "@/assets/license-services.jpg";
 
 const Services = () => {
   const services = [
     {
-      icon: Code,
-      title: "DIGITAL DEVELOPMENT SERVICES",
-      description: "Custom software solutions, web applications, and digital platforms tailored to your business needs.",
-      features: ["Custom Web Applications", "Mobile Development", "API Integration"],
-      color: "vibrant-teal"
+      icon: FileCheck,
+      title: "iGAMING COMPLIANCE SERVICES",
+      description: "Comprehensive compliance solutions to ensure your online gaming business meets all regulatory requirements and industry standards.",
+      features: ["Policies & Procedures", "Regulatory Compliance", "Risk Management"],
+      image: complianceImage
     },
     {
-      icon: Shield,
-      title: "SECURITY & COMPLIANCE SERVICES", 
-      description: "Comprehensive security audits, compliance management, and risk assessment solutions.",
-      features: ["Security Audits", "Compliance Management", "Risk Assessment"],
-      color: "warm-coral"
+      icon: Building,
+      title: "iGAMING CORPORATE SERVICES",
+      description: "Complete corporate solutions for online gaming businesses, from company incorporation to ongoing management services.",
+      features: ["Company Incorporation", "Management Services", "Banking & Tax"],
+      image: corporateImage
     },
     {
-      icon: Briefcase,
-      title: "CORPORATE SERVICES",
-      description: "Business incorporation, management services, and strategic corporate solutions.",
-      features: ["Company Formation", "Management Services", "Strategic Planning"],
-      color: "chip-gold"
-    },
-    {
-      icon: Globe,
-      title: "DIGITAL TRANSFORMATION",
-      description: "End-to-end digital transformation services to modernize your business operations.",
-      features: ["Process Automation", "Cloud Migration", "Digital Strategy"],
-      color: "light-aqua"
-    },
-    {
-      icon: Zap,
-      title: "PERFORMANCE OPTIMIZATION",
-      description: "Optimize your systems and processes for maximum efficiency and scalability.",
-      features: ["System Optimization", "Performance Monitoring", "Scalability Solutions"],
-      color: "vibrant-teal"
-    },
-    {
-      icon: Users,
-      title: "CONSULTING & SUPPORT",
-      description: "Expert consulting and ongoing support to help your business thrive in the digital age.",
-      features: ["Strategic Consulting", "24/7 Support", "Training & Development"],
-      color: "warm-coral"
+      icon: Scale,
+      title: "iGAMING LICENSE SERVICES",
+      description: "Expert assistance with gaming license applications and maintenance across multiple jurisdictions worldwide.",
+      features: ["License Maintenance", "License Applications", "Jurisdictions"],
+      image: licenseImage
     }
   ];
 
@@ -57,20 +39,30 @@ const Services = () => {
             Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive digital solutions designed to accelerate your business growth and streamline your operations.
+            Comprehensive compliance and corporate services designed to help your online gaming business thrive in today's regulated environment.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-lg bg-${service.color}/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className={`h-8 w-8 text-${service.color}`} />
+              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
                   </div>
+                </div>
+                <CardHeader className="text-center pb-4">
                   <CardTitle className="font-heading text-lg font-semibold text-foreground mb-2">
                     {service.title}
                   </CardTitle>
@@ -82,13 +74,13 @@ const Services = () => {
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className={`w-1.5 h-1.5 rounded-full bg-${service.color} mr-3 flex-shrink-0`}></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-gradient-primary mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group">
-                    LEARN MORE
+                  <Button variant="outline" className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    TELL ME MORE
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
