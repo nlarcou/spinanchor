@@ -23,7 +23,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/logo-transparent.png" 
               alt="SpinAnchor" 
-              className="h-10 w-auto drop-shadow-md filter brightness-110 contrast-110"
+              className="h-8 w-auto brightness-125 contrast-110 drop-shadow-lg hover:brightness-150 transition-all duration-300"
             />
           </div>
 
@@ -39,7 +39,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button 
-              className="bg-gradient-to-r from-corporate-gold to-warm-coral hover:from-corporate-gold/90 hover:to-warm-coral/90 text-background font-semibold shadow-elegant"
+              className="bg-gradient-to-r from-chip-gold to-warm-coral hover:from-chip-gold/90 hover:to-warm-coral/90 text-deep-navy font-semibold shadow-elegant"
               onClick={() => window.location.href = '/contact'}
             >
               GET STARTED
@@ -73,7 +73,7 @@ const Navigation = () => {
                 </a>
               ))}
               <Button 
-                className="bg-gradient-to-r from-corporate-gold to-warm-coral hover:from-corporate-gold/90 hover:to-warm-coral/90 text-background font-semibold shadow-elegant mx-2 mt-2"
+                className="bg-gradient-to-r from-chip-gold to-warm-coral hover:from-chip-gold/90 hover:to-warm-coral/90 text-deep-navy font-semibold shadow-elegant mx-2 mt-2"
                 onClick={() => window.location.href = '/contact'}
               >
                 GET STARTED

@@ -8,48 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Sophisticated Dark Corporate Colors with Brand Palette */
-    --background: 220 20% 10%;
-    --foreground: 210 15% 90%;
+    /* SpinAnchor Brand Color Palette with Dark Corporate Theme */
+    --background: 203 98% 12%;  /* Deep Navy base */
+    --foreground: 33 16% 95%;   /* Light text */
 
-    --card: 220 25% 12%;
-    --card-foreground: 210 15% 90%;
+    --card: 203 98% 15%;
+    --card-foreground: 33 16% 95%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 210 15% 90%;
+    --popover: 203 98% 15%;
+    --popover-foreground: 33 16% 95%;
 
-    --primary: 45 80% 65%;
-    --primary-foreground: 220 20% 10%;
+    --primary: 43 65% 55%;      /* Chip Gold */
+    --primary-foreground: 203 98% 12%;
 
-    --secondary: 220 20% 15%;
-    --secondary-foreground: 210 15% 90%;
+    --secondary: 187 100% 32%;   /* Vibrant Teal */
+    --secondary-foreground: 203 98% 12%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 210 10% 70%;
+    --muted: 203 98% 18%;
+    --muted-foreground: 187 22% 75%;
 
-    --accent: 14 85% 65%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 8 100% 69%;       /* Warm Coral */
+    --accent-foreground: 203 98% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 16%;
-    --ring: 45 80% 65%;
+    --border: 203 98% 20%;
+    --input: 203 98% 18%;
+    --ring: 43 65% 55%;
 
-    /* Enhanced Corporate Brand Colors */
-    --deep-navy: 220 35% 12%;
-    --professional-blue: 220 30% 20%;
-    --corporate-gold: 45 80% 65%;
-    --warm-coral: 14 85% 65%;
-    --professional-navy: 220 35% 12%;
-    --accent-warm: 14 70% 58%;
+    /* Brand Colors - Exact Palette */
+    --deep-navy: 203 98% 12%;    /* #01263C */
+    --vibrant-teal: 187 100% 32%; /* #00A8B5 */
+    --chip-gold: 43 65% 55%;     /* #D9A441 */
+    --light-aqua: 190 82% 75%;   /* #8EE3EF */
+    --warm-coral: 8 100% 69%;    /* #FF6F5E */
+    --neutral-sand: 33 16% 95%;  /* #F6F4F1 */
 
-    /* Sophisticated Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--deep-navy)), hsl(var(--professional-blue)));
-    --gradient-hero: linear-gradient(135deg, hsl(220 40% 8%) 0%, hsl(220 35% 12%) 50%, hsl(14 20% 15%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--corporate-gold)), hsl(var(--warm-coral)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--deep-navy)), hsl(var(--accent-warm)));
+    /* Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--deep-navy)), hsl(var(--vibrant-teal)));
+    --gradient-hero: linear-gradient(135deg, hsl(203 98% 8%) 0%, hsl(187 50% 15%) 50%, hsl(203 98% 18%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--chip-gold)), hsl(var(--warm-coral)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--vibrant-teal)), hsl(var(--light-aqua)));
 
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(220 30% 5% / 0.5);
