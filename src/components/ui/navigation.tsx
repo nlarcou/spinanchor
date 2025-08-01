@@ -19,12 +19,15 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/logo-transparent.png" 
-              alt="SpinAnchor" 
-              className="h-8 w-auto brightness-125 contrast-110 drop-shadow-lg hover:brightness-150 transition-all duration-300"
+              alt="SpinAnchor Monogram" 
+              className="h-10 w-auto drop-shadow-md"
             />
+            <span className="text-xl font-bold text-foreground tracking-tight">
+              SpinAnchor
+            </span>
           </div>
 
           {/* Desktop Navigation */}
