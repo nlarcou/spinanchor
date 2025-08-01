@@ -23,7 +23,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/2845fdf9-08fa-4234-a5d7-38128af2b03a.png" 
               alt="SpinAnchor" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
