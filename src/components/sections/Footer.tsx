@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
-import spinAnchorLogo from "@/assets/spinanchor-logo-horizontal.png";
+import spinAnchorLogo from "@/assets/spinanchor-global-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -41,8 +41,8 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src={spinAnchorLogo}
-                alt="SpinAnchor Global" 
+                src="/lovable-uploads/9c56c26f-96c0-4d7a-9750-c1082cb5951f.png"
+                alt="SpinAnchor Global"
                 className="h-10 w-auto filter brightness-0 invert"
               />
             </div>
