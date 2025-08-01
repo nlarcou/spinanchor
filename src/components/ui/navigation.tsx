@@ -21,11 +21,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/9c56c26f-96c0-4d7a-9750-c1082cb5951f.png"
-              alt="SpinAnchor Global"
-              className="h-12 w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
-            />
+            <div className="bg-white/90 rounded-lg p-2 shadow-sm">
+              <img 
+                src="/lovable-uploads/9c56c26f-96c0-4d7a-9750-c1082cb5951f.png"
+                alt="SpinAnchor Global"
+                className="h-10 w-auto"
+              />
+            </div>
           </div>
 
           {/* Desktop Navigation */}
