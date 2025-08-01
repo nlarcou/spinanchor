@@ -24,7 +24,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/f5c94f01-7800-48b9-9386-07f91f497468.png"
               alt="SpinAnchor Global"
-              className="h-[68px] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
+              className="h-[75px] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
             />
           </div>
 
