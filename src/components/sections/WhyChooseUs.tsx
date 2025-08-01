@@ -59,8 +59,8 @@ const WhyChooseUs = () => {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Why choose SpinAnchor"
+                src="/src/assets/corporate-law-office.jpg"
+                alt="Professional corporate law office"
                 className="rounded-2xl shadow-card"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>

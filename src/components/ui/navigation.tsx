@@ -23,7 +23,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/logo-transparent.png" 
               alt="SpinAnchor" 
-              className="h-18 w-auto drop-shadow-lg filter brightness-110 contrast-110"
+              className="h-10 w-auto drop-shadow-md filter brightness-110 contrast-110"
             />
           </div>
 
