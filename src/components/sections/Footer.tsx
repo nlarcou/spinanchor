@@ -41,9 +41,9 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src="/lovable-uploads/9c56c26f-96c0-4d7a-9750-c1082cb5951f.png"
+                src="/lovable-uploads/f5c94f01-7800-48b9-9386-07f91f497468.png"
                 alt="SpinAnchor Global"
-                className="h-10 w-auto filter brightness-0 invert"
+                className="h-10 w-auto"
               />
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
