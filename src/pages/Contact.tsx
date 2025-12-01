@@ -149,7 +149,7 @@ const Contact = () => {
                       <Mail className="h-6 w-6 text-primary" />
                       <div>
                         <h3 className="font-semibold text-foreground">Email</h3>
-                        <p className="text-muted-foreground">info@spinanchor.com</p>
+                        <p className="text-muted-foreground">info@nsgs.pro</p>
                       </div>
                     </div>
                   </CardContent>

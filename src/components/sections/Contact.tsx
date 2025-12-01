@@ -31,9 +31,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-2">General inquiries</p>
-                <p className="font-medium text-foreground">info@spinanchor.com</p>
+                <p className="font-medium text-foreground">info@nsgs.pro</p>
                 <p className="text-muted-foreground mt-4 mb-2">Business partnerships</p>
-                <p className="font-medium text-foreground">partners@spinanchor.com</p>
+                <p className="font-medium text-foreground">partners@nsgs.pro</p>
               </CardContent>
             </Card>
 
