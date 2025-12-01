@@ -58,10 +58,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// NSGS Global brand colors
-				'royal-blue': 'hsl(var(--royal-blue))',
-				'emerald-green': 'hsl(var(--emerald-green))',
-				'cloud-white': 'hsl(var(--cloud-white))',
-				'charcoal-grey': 'hsl(var(--charcoal-grey))',
+				'navy-dark': 'hsl(var(--navy-dark))',
+				'navy-medium': 'hsl(var(--navy-medium))',
+				'blue-medium': 'hsl(var(--blue-medium))',
+				'blue-bright': 'hsl(var(--blue-bright))',
+				'grey-light': 'hsl(var(--grey-light))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
