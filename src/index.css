@@ -8,52 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* SpinAnchor Brand Color Palette with Dark Corporate Theme */
-    --background: 203 98% 12%;  /* Deep Navy base */
-    --foreground: 33 16% 95%;   /* Light text */
+    /* NSGS Global Brand Color Palette */
+    --background: 0 0% 98%;      /* Cloud White #F9F9F9 */
+    --foreground: 0 0% 18%;      /* Charcoal Grey #2D2D2D */
 
-    --card: 203 98% 15%;
-    --card-foreground: 33 16% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 18%;
 
-    --popover: 203 98% 15%;
-    --popover-foreground: 33 16% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 18%;
 
-    --primary: 43 65% 55%;      /* Chip Gold */
-    --primary-foreground: 203 98% 12%;
+    --primary: 229 80% 54%;      /* Royal Blue #2643E9 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 187 100% 32%;   /* Vibrant Teal */
-    --secondary-foreground: 203 98% 12%;
+    --secondary: 145 63% 49%;    /* Emerald Green #2ECC71 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 203 98% 18%;
-    --muted-foreground: 187 22% 75%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 8 100% 69%;       /* Warm Coral */
-    --accent-foreground: 203 98% 12%;
+    --accent: 145 63% 49%;       /* Emerald Green */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 203 98% 20%;
-    --input: 203 98% 18%;
-    --ring: 43 65% 55%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 229 80% 54%;
 
-    /* Brand Colors - Exact Palette */
-    --deep-navy: 203 98% 12%;    /* #01263C */
-    --vibrant-teal: 187 100% 32%; /* #00A8B5 */
-    --chip-gold: 43 65% 55%;     /* #D9A441 */
-    --light-aqua: 190 82% 75%;   /* #8EE3EF */
-    --warm-coral: 8 100% 69%;    /* #FF6F5E */
-    --neutral-sand: 33 16% 95%;  /* #F6F4F1 */
+    /* Brand Colors - NSGS Global */
+    --royal-blue: 229 80% 54%;    /* #2643E9 */
+    --emerald-green: 145 63% 49%; /* #2ECC71 */
+    --cloud-white: 0 0% 98%;      /* #F9F9F9 */
+    --charcoal-grey: 0 0% 18%;    /* #2D2D2D */
 
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--deep-navy)), hsl(var(--vibrant-teal)));
-    --gradient-hero: linear-gradient(135deg, hsl(203 98% 8%) 0%, hsl(187 50% 15%) 50%, hsl(203 98% 18%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--chip-gold)), hsl(var(--warm-coral)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--vibrant-teal)), hsl(var(--light-aqua)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--royal-blue)), hsl(var(--emerald-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(229 80% 50%) 0%, hsl(229 70% 45%) 50%, hsl(229 60% 40%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--emerald-green)), hsl(145 63% 60%));
+    --gradient-subtle: linear-gradient(135deg, hsl(229 80% 96%) 0%, hsl(145 63% 96%) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(220 30% 5% / 0.5);
-    --shadow-card: 0 10px 40px -10px hsl(220 30% 5% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(229 80% 54% / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(229 80% 54% / 0.2);
 
     --radius: 0.5rem;
 
@@ -75,33 +73,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 30% 5%;
-    --foreground: 210 10% 95%;
+    --background: 0 0% 12%;      /* Dark Charcoal */
+    --foreground: 0 0% 95%;
 
-    --card: 215 25% 8%;
-    --card-foreground: 210 10% 95%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 215 25% 8%;
-    --popover-foreground: 210 10% 95%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 45 90% 70%;
-    --primary-foreground: 210 30% 5%;
+    --primary: 229 80% 54%;      /* Royal Blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 20% 12%;
-    --secondary-foreground: 210 10% 95%;
+    --secondary: 145 63% 49%;    /* Emerald Green */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 20% 12%;
-    --muted-foreground: 210 5% 70%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 215 20% 15%;
-    --accent-foreground: 210 10% 95%;
+    --accent: 145 63% 49%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 20% 15%;
-    --input: 215 20% 15%;
-    --ring: 45 90% 70%;
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: 229 80% 54%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
