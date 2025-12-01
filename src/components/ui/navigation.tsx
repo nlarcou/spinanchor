@@ -16,15 +16,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
+    <nav className="bg-navy-dark border-b border-navy-medium sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
             <img 
               src={nsgsLogo}
               alt="NSGS Global - Next Step Gaming Services"
-              className="h-[105px] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
+              className="h-[85px] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
             />
           </div>
 
@@ -34,13 +34,13 @@ const Navigation = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-white hover:text-blue-bright transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-elegant"
+              className="bg-blue-bright hover:bg-blue-bright/90 text-white font-semibold shadow-elegant"
               onClick={() => window.location.href = '/contact'}
             >
               GET STARTED
@@ -53,6 +53,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white hover:text-blue-bright"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -61,20 +62,20 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-navy-medium">
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors px-2 py-1"
+                  className="text-sm font-medium text-white hover:text-blue-bright transition-colors px-2 py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
               <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-elegant mx-2 mt-2"
+                className="bg-blue-bright hover:bg-blue-bright/90 text-white font-semibold shadow-elegant mx-2 mt-2"
                 onClick={() => window.location.href = '/contact'}
               >
                 GET STARTED

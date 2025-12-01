@@ -9,49 +9,51 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* NSGS Global Brand Color Palette */
-    --background: 0 0% 98%;      /* Cloud White #F9F9F9 */
-    --foreground: 0 0% 18%;      /* Charcoal Grey #2D2D2D */
+    --background: 0 0% 100%;     /* White #ffffff */
+    --foreground: 222 52% 19%;   /* Dark Navy #182748 */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card-foreground: 222 52% 19%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 222 52% 19%;
 
-    --primary: 229 80% 54%;      /* Royal Blue #2643E9 */
+    --primary: 222 49% 49%;      /* Bright Blue #3f64ba */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 145 63% 49%;    /* Emerald Green #2ECC71 */
+    --secondary: 222 49% 39%;    /* Medium Blue #324f94 */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 90%;           /* Light Grey #e6e6e6 */
+    --muted-foreground: 218 48% 29%;
 
-    --accent: 145 63% 49%;       /* Emerald Green */
+    --accent: 222 49% 49%;       /* Bright Blue #3f64ba */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 229 80% 54%;
+    --input: 0 0% 90%;
+    --ring: 222 49% 49%;
 
     /* Brand Colors - NSGS Global */
-    --royal-blue: 229 80% 54%;    /* #2643E9 */
-    --emerald-green: 145 63% 49%; /* #2ECC71 */
-    --cloud-white: 0 0% 98%;      /* #F9F9F9 */
-    --charcoal-grey: 0 0% 18%;    /* #2D2D2D */
+    --navy-dark: 222 52% 19%;     /* #182748 */
+    --navy-medium: 218 48% 29%;   /* #253b6e */
+    --blue-medium: 222 49% 39%;   /* #324f94 */
+    --blue-bright: 222 49% 49%;   /* #3f64ba */
+    --grey-light: 0 0% 90%;       /* #e6e6e6 */
+    --white: 0 0% 100%;           /* #ffffff */
 
     /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--royal-blue)), hsl(var(--emerald-green)));
-    --gradient-hero: linear-gradient(135deg, hsl(229 80% 50%) 0%, hsl(229 70% 45%) 50%, hsl(229 60% 40%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--emerald-green)), hsl(145 63% 60%));
-    --gradient-subtle: linear-gradient(135deg, hsl(229 80% 96%) 0%, hsl(145 63% 96%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(222 49% 49%), hsl(222 49% 39%));
+    --gradient-hero: linear-gradient(135deg, hsl(218 48% 29%) 0%, hsl(222 52% 19%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(222 49% 49%), hsl(222 49% 60%));
+    --gradient-subtle: linear-gradient(135deg, hsl(222 49% 96%) 0%, hsl(218 48% 96%) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(229 80% 54% / 0.3);
-    --shadow-card: 0 10px 40px -10px hsl(229 80% 54% / 0.2);
+    --shadow-elegant: 0 10px 30px -10px hsl(222 49% 49% / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(222 49% 49% / 0.2);
 
     --radius: 0.5rem;
 
@@ -73,33 +75,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 12%;      /* Dark Charcoal */
+    --background: 222 52% 19%;   /* Dark Navy #182748 */
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 15%;
+    --card: 218 48% 29%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 15%;
+    --popover: 218 48% 29%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 229 80% 54%;      /* Royal Blue */
+    --primary: 222 49% 49%;      /* Bright Blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 145 63% 49%;    /* Emerald Green */
+    --secondary: 222 49% 39%;    /* Medium Blue */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
+    --muted: 218 48% 29%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 145 63% 49%;
+    --accent: 222 49% 49%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 20%;
-    --ring: 229 80% 54%;
+    --border: 218 48% 35%;
+    --input: 218 48% 29%;
+    --ring: 222 49% 49%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
