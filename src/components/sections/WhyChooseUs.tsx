@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Globe2, Clock, Shield, Lightbulb, HeartHandshake } from "lucide-react";
+import corporateLawOffice from "@/assets/corporate-law-office.jpg";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -59,7 +60,7 @@ const WhyChooseUs = () => {
             
             <div className="relative">
               <img 
-                src="/src/assets/corporate-law-office.jpg"
+                src={corporateLawOffice}
                 alt="Professional corporate law office"
                 className="rounded-2xl shadow-card"
               />
