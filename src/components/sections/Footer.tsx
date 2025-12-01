@@ -43,7 +43,8 @@ const Footer = () => {
               <img 
                 src={nsgsLogo}
                 alt="NSGS Global"
-                className="h-20 w-auto brightness-0 invert"
+                className="h-20 w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
               />
             </div>
             <p className="text-background/80 mb-6 leading-relaxed">
