@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import spinAnchorLogo from "@/assets/spinanchor-global-logo.png";
+import nsgsLogo from "@/assets/nsgs-logo.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,8 +22,8 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/lovable-uploads/f5c94f01-7800-48b9-9386-07f91f497468.png"
-              alt="SpinAnchor Global"
+              src={nsgsLogo}
+              alt="NSGS Global - Next Step Gaming Services"
               className="h-[105px] w-auto drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
             />
           </div>
@@ -40,7 +40,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button 
-              className="bg-gradient-to-r from-chip-gold to-warm-coral hover:from-chip-gold/90 hover:to-warm-coral/90 text-deep-navy font-semibold shadow-elegant"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-elegant"
               onClick={() => window.location.href = '/contact'}
             >
               GET STARTED
@@ -74,7 +74,7 @@ const Navigation = () => {
                 </a>
               ))}
               <Button 
-                className="bg-gradient-to-r from-chip-gold to-warm-coral hover:from-chip-gold/90 hover:to-warm-coral/90 text-deep-navy font-semibold shadow-elegant mx-2 mt-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-elegant mx-2 mt-2"
                 onClick={() => window.location.href = '/contact'}
               >
                 GET STARTED

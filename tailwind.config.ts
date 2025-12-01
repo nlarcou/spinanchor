@@ -20,7 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
-				'heading': ['Poppins', 'system-ui', 'sans-serif'],
+				'heading': ['Montserrat', 'Poppins', 'system-ui', 'sans-serif'],
 				'mono': ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
@@ -57,13 +57,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// SpinAnchor brand colors
-				'deep-navy': 'hsl(var(--deep-navy))',
-				'vibrant-teal': 'hsl(var(--vibrant-teal))',
-				'chip-gold': 'hsl(var(--chip-gold))',
-				'light-aqua': 'hsl(var(--light-aqua))',
-				'warm-coral': 'hsl(var(--warm-coral))',
-				'neutral-sand': 'hsl(var(--neutral-sand))',
+				// NSGS Global brand colors
+				'royal-blue': 'hsl(var(--royal-blue))',
+				'emerald-green': 'hsl(var(--emerald-green))',
+				'cloud-white': 'hsl(var(--cloud-white))',
+				'charcoal-grey': 'hsl(var(--charcoal-grey))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

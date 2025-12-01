@@ -35,11 +35,11 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-            Services
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Our iGaming Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive compliance and corporate services designed to help your online gaming business thrive in today's regulated environment.
+            NSGS Global provides comprehensive iGaming solutions—from licensing and compliance to platform operations and payment infrastructure. We handle the complexities so you can focus on growth.
           </p>
         </div>
 
