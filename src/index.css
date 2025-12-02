@@ -8,54 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* NSGS Global Brand Color Palette */
-    --background: 0 0% 100%;     /* White #ffffff */
-    --foreground: 222 52% 19%;   /* Dark Navy #182748 */
+    /* NSGS Global Brand Color Palette - Modern Light Theme */
+    --background: 210 20% 98%;     /* Very Light Blue-Grey #f7f9fb */
+    --foreground: 222 52% 19%;     /* Dark Navy #182748 */
 
-    --card: 0 0% 100%;
+    --card: 0 0% 100%;             /* Pure White */
     --card-foreground: 222 52% 19%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222 52% 19%;
 
-    --primary: 222 49% 49%;      /* Bright Blue #3f64ba */
+    --primary: 222 49% 49%;        /* Bright Blue #3f64ba */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 49% 39%;    /* Medium Blue #324f94 */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;      /* Light Blue-Grey #f1f4f7 */
+    --secondary-foreground: 222 52% 19%;
 
-    --muted: 0 0% 90%;           /* Light Grey #e6e6e6 */
-    --muted-foreground: 218 48% 29%;
+    --muted: 210 20% 96%;          /* Light Blue-Grey #f1f4f7 */
+    --muted-foreground: 222 30% 40%;
 
-    --accent: 222 49% 49%;       /* Bright Blue #3f64ba */
+    --accent: 4 90% 58%;           /* Vibrant Red Accent #e63946 */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 210 20% 90%;         /* Light Border */
+    --input: 210 20% 96%;
     --ring: 222 49% 49%;
 
     /* Brand Colors - NSGS Global */
-    --navy-dark: 222 52% 19%;     /* #182748 */
-    --navy-medium: 218 48% 29%;   /* #253b6e */
-    --blue-medium: 222 49% 39%;   /* #324f94 */
-    --blue-bright: 222 49% 49%;   /* #3f64ba */
-    --grey-light: 0 0% 90%;       /* #e6e6e6 */
-    --white: 0 0% 100%;           /* #ffffff */
+    --navy-dark: 222 52% 19%;      /* #182748 */
+    --navy-medium: 218 48% 29%;    /* #253b6e */
+    --blue-medium: 222 49% 39%;    /* #324f94 */
+    --blue-bright: 222 49% 49%;    /* #3f64ba */
+    --grey-light: 210 20% 96%;     /* #f1f4f7 */
+    --white: 0 0% 100%;            /* #ffffff */
+    --accent-red: 4 90% 58%;       /* #e63946 */
 
     /* Brand Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(222 49% 49%), hsl(222 49% 39%));
-    --gradient-hero: linear-gradient(135deg, hsl(218 48% 29%) 0%, hsl(222 52% 19%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(222 49% 49%), hsl(222 49% 60%));
-    --gradient-subtle: linear-gradient(135deg, hsl(222 49% 96%) 0%, hsl(218 48% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(4 90% 58%), hsl(4 90% 50%));
+    --gradient-subtle: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(0 0% 100%) 100%);
 
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(222 49% 49% / 0.3);
-    --shadow-card: 0 10px 40px -10px hsl(222 49% 49% / 0.2);
+    --shadow-elegant: 0 10px 40px -10px hsl(222 49% 49% / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(222 49% 49% / 0.1);
+    --shadow-hover: 0 12px 50px -10px hsl(222 49% 49% / 0.25);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 

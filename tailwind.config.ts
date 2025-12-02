@@ -20,7 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
-				'heading': ['Montserrat', 'Poppins', 'system-ui', 'sans-serif'],
+				'heading': ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
 				'mono': ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
@@ -63,6 +63,7 @@ export default {
 				'blue-medium': 'hsl(var(--blue-medium))',
 				'blue-bright': 'hsl(var(--blue-bright))',
 				'grey-light': 'hsl(var(--grey-light))',
+				'accent-red': 'hsl(var(--accent-red))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -81,6 +82,7 @@ export default {
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
 				'card': 'var(--shadow-card)',
+				'hover': 'var(--shadow-hover)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
