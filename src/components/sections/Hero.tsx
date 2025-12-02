@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Gamepad2, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-igaming.jpg";
 
 const Hero = () => {
@@ -30,6 +31,7 @@ const Hero = () => {
                 size="lg" 
                 variant="accent"
                 className="font-semibold shadow-elegant group"
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 EXPLORE OUR SERVICES
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -39,9 +41,12 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="font-semibold group shadow-sm"
+                asChild
               >
-                MAKE AN INQUIRY
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Link to="/contact">
+                  MAKE AN INQUIRY
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </div>
 
