@@ -63,12 +63,12 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 overflow-hidden">
-                <div className="relative h-48 overflow-hidden">
+              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 overflow-hidden flex flex-col">
+                <div className="relative h-48 overflow-hidden flex-shrink-0">
                   <img 
                     src={service.image} 
                     alt={service.title}
@@ -89,8 +89,8 @@ const Services = () => {
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-0">
-                  <ul className="space-y-2 mb-6">
+                <CardContent className="pt-0 flex flex-col flex-grow">
+                  <ul className="space-y-2 mb-6 flex-grow">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
                         <div className="w-1.5 h-1.5 rounded-full bg-gradient-primary mr-3 flex-shrink-0"></div>
@@ -100,7 +100,7 @@ const Services = () => {
                   </ul>
                   <Button 
                     variant="outline" 
-                    className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-auto"
                     onClick={() => window.location.href = service.link}
                   >
                     TELL ME MORE
