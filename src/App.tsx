@@ -10,6 +10,8 @@ import CorporateServices from "./pages/CorporateServices";
 import LicenseServices from "./pages/LicenseServices";
 import ProcessingServices from "./pages/ProcessingServices";
 import BankingServices from "./pages/BankingServices";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/license-services" element={<LicenseServices />} />
           <Route path="/processing-services" element={<ProcessingServices />} />
           <Route path="/banking-services" element={<BankingServices />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
