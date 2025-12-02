@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, ChevronDown } from "lucide-react";
 import nsgsLogo from "@/assets/nsgs-logo.png";
 
 const Navigation = () => {
@@ -8,11 +14,16 @@ const Navigation = () => {
 
   const navItems = [
     { label: "HOME", href: "#home" },
-    { label: "SERVICES", href: "#services" },
     { label: "SOLUTIONS", href: "#solutions" },
     { label: "ABOUT", href: "#about" },
     { label: "TEAM", href: "#team" },
     { label: "CONTACT", href: "#contact" },
+  ];
+
+  const services = [
+    { label: "iGaming Compliance Services", href: "#services" },
+    { label: "iGaming Corporate Services", href: "#services" },
+    { label: "iGaming License Services", href: "#services" },
   ];
 
   return (
@@ -39,6 +50,27 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-sm font-medium text-white hover:text-blue-bright transition-colors flex items-center gap-1 outline-none">
+                SERVICES
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-navy-dark border-navy-medium min-w-[250px]">
+                {services.map((service) => (
+                  <DropdownMenuItem key={service.label} asChild>
+                    <a
+                      href={service.href}
+                      className="text-white hover:text-blue-bright hover:bg-navy-medium cursor-pointer px-3 py-2"
+                    >
+                      {service.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button 
               className="bg-blue-bright hover:bg-blue-bright/90 text-white font-semibold shadow-elegant"
               onClick={() => window.location.href = '/contact'}
@@ -74,6 +106,24 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
+              
+              {/* Mobile Services */}
+              <div className="px-2">
+                <div className="text-sm font-medium text-white mb-2">SERVICES</div>
+                <div className="flex flex-col space-y-2 pl-4">
+                  {services.map((service) => (
+                    <a
+                      key={service.label}
+                      href={service.href}
+                      className="text-sm text-muted-foreground hover:text-blue-bright transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {service.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <Button 
                 className="bg-blue-bright hover:bg-blue-bright/90 text-white font-semibold shadow-elegant mx-2 mt-2"
                 onClick={() => window.location.href = '/contact'}
