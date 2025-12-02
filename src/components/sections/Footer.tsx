@@ -68,9 +68,9 @@ const Footer = () => {
               <div className="flex items-start text-sm text-background/80">
                 <MapPin className="h-4 w-4 mr-3 mt-0.5 text-primary flex-shrink-0" />
                 <span>
-                  United Nations Street, 44<br />
-                  Orthodoxou Tower, 3rd-4th Floor<br />
-                  6042, Larnaka, Cyprus
+                  Van Dyke, 6<br />
+                  Solonion Building<br />
+                  6037, Larnaca, Cyprus
                 </span>
               </div>
             </div>
