@@ -12,21 +12,24 @@ const Services = () => {
       title: "iGAMING COMPLIANCE SERVICES",
       description: "Comprehensive compliance solutions to ensure your online gaming business meets all regulatory requirements and industry standards.",
       features: ["Policies & Procedures", "Regulatory Compliance", "Risk Management"],
-      image: complianceImage
+      image: complianceImage,
+      link: "/compliance-services"
     },
     {
       icon: Building,
       title: "iGAMING CORPORATE SERVICES",
       description: "Complete corporate solutions for online gaming businesses, from company incorporation to ongoing management services.",
       features: ["Company Incorporation", "Management Services", "Banking & Tax"],
-      image: corporateImage
+      image: corporateImage,
+      link: "/corporate-services"
     },
     {
       icon: Scale,
       title: "iGAMING LICENSE SERVICES",
       description: "Expert assistance with gaming license applications and maintenance across multiple jurisdictions worldwide.",
       features: ["License Maintenance", "License Applications", "Jurisdictions"],
-      image: licenseImage
+      image: licenseImage,
+      link: "/license-services"
     }
   ];
 
@@ -79,7 +82,11 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    onClick={() => window.location.href = service.link}
+                  >
                     TELL ME MORE
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
