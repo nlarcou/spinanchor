@@ -2,8 +2,8 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp number (include country code without + or spaces)
-    const phoneNumber = "35724030500"; // +357 24 030 500
+    // NSGS Global WhatsApp Business Number
+    const phoneNumber = "35796281311"; // +357 96 281 311
     const message = encodeURIComponent("Hello! I'm interested in your iGaming services.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
