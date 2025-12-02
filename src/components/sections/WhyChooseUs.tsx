@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
   return (
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Content */}
           <div>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
               Why our clients choose us
             </h3>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Seven key reasons why businesses worldwide trust SpinAnchor as their preferred 
+              Seven key reasons why businesses worldwide trust NSGS Global as their preferred 
               iGaming compliance and corporate services provider:
             </p>
             
