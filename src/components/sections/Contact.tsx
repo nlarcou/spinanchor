@@ -62,9 +62,9 @@ const Contact = () => {
               <CardContent>
                 <p className="text-muted-foreground mb-2">Headquarters</p>
                 <p className="font-medium text-foreground">
-                  United Nations Street, 44<br />
-                  Orthodoxou Tower, 3rd-4th Floor<br />
-                  6042, Larnaka<br />
+                  Van Dyke, 6<br />
+                  Solonion Building<br />
+                  6037, Larnaca<br />
                   Cyprus
                 </p>
               </CardContent>

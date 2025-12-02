@@ -131,9 +131,9 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-foreground mb-2">CYPRUS OFFICE</h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          United Nations Street, 44<br />
-                          Orthodoxou Tower, 3rd-4th Floor<br />
-                          6042, Larnaka<br />
+                          Van Dyke, 6<br />
+                          Solonion Building<br />
+                          6037, Larnaca<br />
                           Cyprus
                         </p>
                       </div>
