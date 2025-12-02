@@ -32,12 +32,20 @@ const Services = () => {
       link: "/license-services"
     },
     {
+      icon: FileCheck,
+      title: "iGAMING PROCESSING SERVICES",
+      description: "Secure payment processing solutions with multi-currency support and fraud prevention for iGaming operators.",
+      features: ["Payment Gateways", "Transaction Security", "Fraud Prevention"],
+      image: complianceImage,
+      link: "/processing-services"
+    },
+    {
       icon: Building,
-      title: "iGAMING PROCESSING & BANKING",
-      description: "Comprehensive payment processing and banking solutions tailored for iGaming operators across multiple jurisdictions.",
-      features: ["Payment Gateway Integration", "Multi-Currency Support", "Banking Solutions"],
+      title: "iGAMING BANKING SERVICES",
+      description: "Dedicated banking relationships and merchant accounts tailored specifically for iGaming businesses.",
+      features: ["Merchant Accounts", "Banking Solutions", "Financial Management"],
       image: corporateImage,
-      link: "/processing-banking-services"
+      link: "/banking-services"
     }
   ];
 
@@ -55,7 +63,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (

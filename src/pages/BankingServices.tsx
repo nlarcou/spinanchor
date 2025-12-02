@@ -2,51 +2,41 @@ import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, Wallet, Globe, Shield, TrendingUp, Users, DollarSign, Lock } from "lucide-react";
+import { Building2, DollarSign, Users, TrendingUp, FileText, Briefcase } from "lucide-react";
 import corporateImage from "@/assets/corporate-services-new.jpg";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 
-const ProcessingBankingServices = () => {
+const BankingServices = () => {
   const services = [
     {
-      icon: CreditCard,
-      title: "Payment Gateway Integration",
-      description: "Seamless integration with leading payment gateways optimized for iGaming transactions."
-    },
-    {
-      icon: Globe,
-      title: "Multi-Currency Support",
-      description: "Accept payments in multiple currencies with real-time conversion and competitive rates."
-    },
-    {
-      icon: Wallet,
-      title: "E-Wallet Solutions",
-      description: "Integration with popular e-wallet providers for fast and secure player deposits and withdrawals."
+      icon: Building2,
+      title: "Merchant Accounts",
+      description: "Dedicated merchant accounts tailored for high-risk iGaming businesses across multiple jurisdictions."
     },
     {
       icon: DollarSign,
-      title: "Banking Solutions",
-      description: "Dedicated banking relationships and merchant accounts tailored for iGaming businesses."
-    },
-    {
-      icon: Shield,
-      title: "Fraud Prevention",
-      description: "Advanced fraud detection and prevention systems to protect your business and players."
-    },
-    {
-      icon: Lock,
-      title: "Secure Transactions",
-      description: "PCI-DSS compliant payment processing with end-to-end encryption and tokenization."
-    },
-    {
-      icon: TrendingUp,
-      title: "Transaction Monitoring",
-      description: "Real-time transaction monitoring and reporting with comprehensive analytics."
+      title: "Banking Relationships",
+      description: "Establish and maintain banking relationships with institutions experienced in iGaming operations."
     },
     {
       icon: Users,
       title: "Player Account Management",
       description: "Comprehensive player wallet management and balance reconciliation systems."
+    },
+    {
+      icon: TrendingUp,
+      title: "Financial Management",
+      description: "Advanced financial management tools and reporting for better cash flow control."
+    },
+    {
+      icon: FileText,
+      title: "Regulatory Reporting",
+      description: "Automated regulatory reporting and compliance documentation for financial authorities."
+    },
+    {
+      icon: Briefcase,
+      title: "Treasury Services",
+      description: "Professional treasury management services to optimize your financial operations."
     }
   ];
 
@@ -61,14 +51,14 @@ const ProcessingBankingServices = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-                <CreditCard className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Payment Solutions</span>
+                <Building2 className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">Banking Solutions</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-                iGaming Processing & Banking
+                iGaming Banking Services
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Comprehensive payment processing and banking solutions designed specifically for iGaming operators. We provide secure, reliable, and scalable payment infrastructure to support your global operations.
+                Specialized banking solutions for iGaming operators. We provide dedicated merchant accounts, banking relationships, and financial management services tailored to the unique needs of the online gaming industry.
               </p>
               <Button 
                 size="lg" 
@@ -82,7 +72,7 @@ const ProcessingBankingServices = () => {
             <div className="relative">
               <img 
                 src={corporateImage}
-                alt="iGaming Processing & Banking Services"
+                alt="iGaming Banking Services"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-hover"
               />
             </div>
@@ -95,14 +85,14 @@ const ProcessingBankingServices = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Complete Payment & Banking Solutions
+              Complete Banking Solutions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              End-to-end payment processing and banking services to power your iGaming business worldwide.
+              End-to-end banking services designed to support your iGaming business with reliable financial infrastructure.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -129,10 +119,10 @@ const ProcessingBankingServices = () => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Optimize Your Payment Infrastructure?
+            Ready to Secure Your Banking Infrastructure?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how our processing and banking solutions can enhance your iGaming operations.
+            Contact us today to discuss how our banking solutions can support your iGaming business growth.
           </p>
           <Button 
             size="lg" 
@@ -151,4 +141,4 @@ const ProcessingBankingServices = () => {
   );
 };
 
-export default ProcessingBankingServices;
+export default BankingServices;

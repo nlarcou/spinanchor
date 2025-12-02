@@ -8,7 +8,8 @@ import Contact from "./pages/Contact";
 import ComplianceServices from "./pages/ComplianceServices";
 import CorporateServices from "./pages/CorporateServices";
 import LicenseServices from "./pages/LicenseServices";
-import ProcessingBankingServices from "./pages/ProcessingBankingServices";
+import ProcessingServices from "./pages/ProcessingServices";
+import BankingServices from "./pages/BankingServices";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +26,8 @@ const App = () => (
           <Route path="/compliance-services" element={<ComplianceServices />} />
           <Route path="/corporate-services" element={<CorporateServices />} />
           <Route path="/license-services" element={<LicenseServices />} />
-          <Route path="/processing-banking-services" element={<ProcessingBankingServices />} />
+          <Route path="/processing-services" element={<ProcessingServices />} />
+          <Route path="/banking-services" element={<BankingServices />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
