@@ -30,6 +30,14 @@ const Services = () => {
       features: ["License Maintenance", "License Applications", "Jurisdictions"],
       image: licenseImage,
       link: "/license-services"
+    },
+    {
+      icon: Building,
+      title: "iGAMING PROCESSING & BANKING",
+      description: "Comprehensive payment processing and banking solutions tailored for iGaming operators across multiple jurisdictions.",
+      features: ["Payment Gateway Integration", "Multi-Currency Support", "Banking Solutions"],
+      image: corporateImage,
+      link: "/processing-banking-services"
     }
   ];
 
@@ -47,7 +55,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (

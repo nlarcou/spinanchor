@@ -27,6 +27,7 @@ const Navigation = () => {
     { label: "iGaming Compliance Services", href: "/compliance-services" },
     { label: "iGaming Corporate Services", href: "/corporate-services" },
     { label: "iGaming License Services", href: "/license-services" },
+    { label: "iGaming Processing & Banking", href: "/processing-banking-services" },
   ];
 
   const handleNavClick = (href: string) => {
