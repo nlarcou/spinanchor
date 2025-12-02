@@ -14,16 +14,15 @@ const Navigation = () => {
 
   const navItems = [
     { label: "HOME", href: "#home" },
-    { label: "SOLUTIONS", href: "#solutions" },
     { label: "ABOUT", href: "#about" },
     { label: "TEAM", href: "#team" },
     { label: "CONTACT", href: "#contact" },
   ];
 
   const services = [
-    { label: "iGaming Compliance Services", href: "#services" },
-    { label: "iGaming Corporate Services", href: "#services" },
-    { label: "iGaming License Services", href: "#services" },
+    { label: "iGaming Compliance Services", href: "/compliance-services" },
+    { label: "iGaming Corporate Services", href: "/corporate-services" },
+    { label: "iGaming License Services", href: "/license-services" },
   ];
 
   return (
