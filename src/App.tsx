@@ -2,9 +2,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import ScrollToTop from "./components/ScrollToTop";
+import Chatbot from "./components/ui/chatbot";
+import WhatsAppButton from "./components/ui/whatsapp-button";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import ComplianceServices from "./pages/ComplianceServices";
@@ -20,6 +22,20 @@ import AdminRequests from "./pages/AdminRequests";
 import AdminUsers from "./pages/AdminUsers";
 import NotFound from "./pages/NotFound";
 
+const FloatingButtons = () => {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+  
+  if (isAdminRoute) return null;
+  
+  return (
+    <>
+      <Chatbot />
+      <WhatsAppButton />
+    </>
+  );
+};
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +46,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <ScrollToTop />
+          <FloatingButtons />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<Contact />} />
