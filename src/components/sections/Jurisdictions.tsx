@@ -1,29 +1,40 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Globe, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import jurisdictionsImage from "@/assets/jurisdictions.jpg";
 
 const Jurisdictions = () => {
   const jurisdictions = [
     {
-      name: "Curaçao",
-      description: "One of the most established gaming jurisdictions with flexible regulations and quick licensing processes.",
-      features: ["Established Jurisdiction", "Flexible Regulations", "Quick Processing"]
-    },
-    {
-      name: "Malta",
+      name: "Malta Gaming Authority (MGA)",
       description: "Premium EU jurisdiction with strict regulations and excellent reputation in the iGaming industry.",
       features: ["EU Jurisdiction", "Premium Reputation", "Comprehensive Framework"]
     },
     {
-      name: "The Netherlands",
-      description: "Regulated market with high standards and access to the Dutch gaming market.",
-      features: ["Regulated Market", "High Standards", "Local Market Access"]
+      name: "Curaçao eGaming",
+      description: "One of the most established gaming jurisdictions with flexible regulations and quick licensing processes.",
+      features: ["Established Jurisdiction", "Flexible Regulations", "Quick Processing"]
     },
     {
-      name: "Cyprus",
-      description: "Strategic location with favorable business environment and EU membership benefits.",
-      features: ["EU Member State", "Business Friendly", "Strategic Location"]
+      name: "UK Gambling Commission",
+      description: "World's most stringent gaming regulator with access to the lucrative UK market.",
+      features: ["Premium Market", "Strict Standards", "Global Recognition"]
+    },
+    {
+      name: "Gibraltar Licensing Authority",
+      description: "British territory offering tax advantages and access to EU markets.",
+      features: ["Tax Benefits", "EU Access", "Strong Reputation"]
+    },
+    {
+      name: "Isle of Man",
+      description: "Established jurisdiction known for innovation and operator-friendly regulations.",
+      features: ["Innovation Hub", "Operator Friendly", "Established Framework"]
+    },
+    {
+      name: "Estonia",
+      description: "Digital-forward EU member state with efficient licensing processes.",
+      features: ["EU Member", "Digital Focus", "Efficient Processing"]
     }
   ];
 
@@ -115,9 +126,11 @@ const Jurisdictions = () => {
             ))}
             
             <div className="pt-4">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group">
-                Learn More About Jurisdictions
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group" asChild>
+                <Link to="/license-services">
+                  Learn More About Jurisdictions
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </div>
           </div>
