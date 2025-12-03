@@ -140,11 +140,9 @@ const Footer = () => {
             <p className="text-background/80 text-sm mb-4">
               Get the latest iGaming insights delivered to your inbox.
             </p>
-            <Link to="/contact">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Contact Us
-              </Button>
-            </Link>
+            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
 
