@@ -17,6 +17,7 @@ import TermsOfService from "./pages/TermsOfService";
 import IgamingServices from "./pages/IgamingServices";
 import AdminLogin from "./pages/AdminLogin";
 import AdminRequests from "./pages/AdminRequests";
+import AdminUsers from "./pages/AdminUsers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/igaming-services" element={<IgamingServices />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/requests" element={<AdminRequests />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
