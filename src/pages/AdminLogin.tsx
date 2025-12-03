@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -19,7 +18,6 @@ const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
   const { signIn, user, isAdmin, loading } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -44,33 +42,6 @@ const AdminLogin = () => {
     }
 
     setIsLoading(true);
-    
-    if (isSignUp) {
-      const redirectUrl = `${window.location.origin}/admin`;
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: redirectUrl,
-        },
-      });
-
-      if (error) {
-        toast({
-          title: 'Sign Up Failed',
-          description: error.message,
-          variant: 'destructive',
-        });
-      } else {
-        toast({
-          title: 'Account Created!',
-          description: 'Your account has been created. Please contact an administrator to get admin access.',
-        });
-        setIsSignUp(false);
-      }
-      setIsLoading(false);
-      return;
-    }
 
     const { error } = await signIn(email, password);
     
@@ -104,14 +75,9 @@ const AdminLogin = () => {
           <div className="mx-auto mb-4 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
             <Shield className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold">
-            {isSignUp ? 'Create Admin Account' : 'Admin Login'}
-          </CardTitle>
+          <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
           <CardDescription>
-            {isSignUp 
-              ? 'Create an account to request admin access'
-              : 'Sign in to access the NSGS admin dashboard'
-            }
+            Sign in to access the NSGS admin dashboard
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -148,26 +114,13 @@ const AdminLogin = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  {isSignUp ? 'Creating account...' : 'Signing in...'}
+                  Signing in...
                 </>
               ) : (
-                isSignUp ? 'Create Account' : 'Sign In'
+                'Sign In'
               )}
             </Button>
           </form>
-          <div className="mt-4 text-center">
-            <button
-              type="button"
-              onClick={() => setIsSignUp(!isSignUp)}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              disabled={isLoading}
-            >
-              {isSignUp 
-                ? 'Already have an account? Sign in' 
-                : "Don't have an account? Sign up"
-              }
-            </button>
-          </div>
         </CardContent>
       </Card>
     </div>
