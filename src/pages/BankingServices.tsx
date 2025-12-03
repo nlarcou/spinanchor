@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, DollarSign, Users, TrendingUp, FileText, Briefcase } from "lucide-react";
 import corporateImage from "@/assets/corporate-services-new.jpg";
-import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const BankingServices = () => {
   const services = [
@@ -64,9 +64,9 @@ const BankingServices = () => {
                 size="lg" 
                 variant="accent"
                 className="font-semibold shadow-elegant"
-                onClick={() => window.location.href = '/contact'}
+                asChild
               >
-                REQUEST CONSULTATION
+                <Link to="/contact?service=banking">REQUEST CONSULTATION</Link>
               </Button>
             </div>
             <div className="relative">
@@ -128,15 +128,14 @@ const BankingServices = () => {
             size="lg" 
             variant="accent"
             className="font-semibold shadow-elegant"
-            onClick={() => window.location.href = '/contact'}
+            asChild
           >
-            GET STARTED
+            <Link to="/contact?service=banking">GET STARTED</Link>
           </Button>
         </div>
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 };
