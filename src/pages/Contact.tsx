@@ -1,14 +1,94 @@
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin, ArrowLeft } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowLeft, Loader2, Send } from "lucide-react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  firstName: z.string().trim().min(1, 'First name is required').max(100),
+  lastName: z.string().trim().min(1, 'Last name is required').max(100),
+  email: z.string().trim().email('Invalid email address').max(255),
+  company: z.string().trim().max(200).optional(),
+  phone: z.string().trim().max(50).optional(),
+  service: z.string().optional(),
+  message: z.string().trim().min(1, 'Message is required').max(2000),
+});
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const validation = contactSchema.safeParse(formData);
+    if (!validation.success) {
+      toast({
+        title: 'Validation Error',
+        description: validation.error.errors[0].message,
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from('contact_requests').insert({
+      first_name: formData.firstName.trim(),
+      last_name: formData.lastName.trim(),
+      email: formData.email.trim(),
+      company: formData.company.trim() || null,
+      phone: formData.phone.trim() || null,
+      service: formData.service || null,
+      message: formData.message.trim(),
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to submit your message. Please try again.',
+        variant: 'destructive',
+      });
+    } else {
+      toast({
+        title: 'Message Sent!',
+        description: 'Thank you for contacting us. We will get back to you soon.',
+      });
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        phone: '',
+        service: '',
+        message: '',
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -57,64 +137,122 @@ const Contact = () => {
                     Complete this form and one of our experts will contact you:
                   </p>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="firstName">First Name *</Label>
-                      <Input id="firstName" required className="mt-1" />
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="firstName">First Name *</Label>
+                        <Input
+                          id="firstName"
+                          value={formData.firstName}
+                          onChange={(e) => handleChange('firstName', e.target.value)}
+                          required
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName">Last Name *</Label>
+                        <Input
+                          id="lastName"
+                          value={formData.lastName}
+                          onChange={(e) => handleChange('lastName', e.target.value)}
+                          required
+                          className="mt-1"
+                          disabled={isSubmitting}
+                        />
+                      </div>
                     </div>
+                    
                     <div>
-                      <Label htmlFor="lastName">Last Name *</Label>
-                      <Input id="lastName" required className="mt-1" />
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleChange('email', e.target.value)}
+                        required
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
                     </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="email">Email *</Label>
-                    <Input id="email" type="email" required className="mt-1" />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="company">Company</Label>
-                    <Input id="company" className="mt-1" />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" className="mt-1" />
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="service">Service Interest</Label>
-                    <Select>
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="compliance">iGaming Compliance Services</SelectItem>
-                        <SelectItem value="corporate">iGaming Corporate Services</SelectItem>
-                        <SelectItem value="license">iGaming License Services</SelectItem>
-                        <SelectItem value="consultation">General Consultation</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea 
-                      id="message" 
-                      required 
-                      className="mt-1 min-h-[120px]"
-                      placeholder="Please describe your needs and how we can help you..."
-                    />
-                  </div>
-                  
-                  <Button 
-                    className="w-full bg-gradient-to-r from-corporate-gold to-warm-coral hover:from-corporate-gold/90 hover:to-warm-coral/90 text-background font-semibold shadow-elegant"
-                    size="lg"
-                  >
-                    Send Message
-                  </Button>
+                    
+                    <div>
+                      <Label htmlFor="company">Company</Label>
+                      <Input
+                        id="company"
+                        value={formData.company}
+                        onChange={(e) => handleChange('company', e.target.value)}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="phone">Phone</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleChange('phone', e.target.value)}
+                        className="mt-1"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="service">Service Interest</Label>
+                      <Select
+                        value={formData.service}
+                        onValueChange={(value) => handleChange('service', value)}
+                        disabled={isSubmitting}
+                      >
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="compliance">iGaming Compliance Services</SelectItem>
+                          <SelectItem value="corporate">iGaming Corporate Services</SelectItem>
+                          <SelectItem value="license">iGaming License Services</SelectItem>
+                          <SelectItem value="processing">iGaming Processing Services</SelectItem>
+                          <SelectItem value="banking">iGaming Banking Services</SelectItem>
+                          <SelectItem value="consultation">General Consultation</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="message">Message *</Label>
+                      <Textarea 
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => handleChange('message', e.target.value)}
+                        required 
+                        className="mt-1 min-h-[120px]"
+                        placeholder="Please describe your needs and how we can help you..."
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-corporate-gold to-warm-coral hover:from-corporate-gold/90 hover:to-warm-coral/90 text-background font-semibold shadow-elegant"
+                      size="lg"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
                 </CardContent>
               </Card>
             </div>
@@ -161,7 +299,7 @@ const Contact = () => {
                       <Phone className="h-6 w-6 text-primary" />
                       <div>
                         <h3 className="font-semibold text-foreground">Phone</h3>
-                        <p className="text-muted-foreground">+357 24 030 500</p>
+                        <p className="text-muted-foreground">+357 96 281 311</p>
                       </div>
                     </div>
                   </CardContent>
