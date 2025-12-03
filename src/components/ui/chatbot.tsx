@@ -114,7 +114,7 @@ const Chatbot = () => {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-80 sm:w-96 max-h-[500px] z-50">
+        <div className="fixed bottom-24 right-24 w-80 sm:w-96 max-h-[500px] z-50">
           <Card className="border-border bg-card shadow-2xl">
             <CardHeader className="bg-gradient-to-r from-foreground to-foreground/90 text-background p-4">
               <CardTitle className="text-lg font-semibold">
