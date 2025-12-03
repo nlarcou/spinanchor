@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -14,7 +14,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, LogOut, Eye, RefreshCw } from 'lucide-react';
+import { Loader2, LogOut, Eye, RefreshCw, Users } from 'lucide-react';
 import { format } from 'date-fns';
 
 interface ContactRequest {
@@ -142,6 +142,12 @@ const AdminRequests = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-foreground">NSGS Admin Dashboard</h1>
           <div className="flex items-center gap-4">
+            <Link to="/admin/users">
+              <Button variant="outline" size="sm">
+                <Users className="h-4 w-4 mr-2" />
+                Users
+              </Button>
+            </Link>
             <span className="text-sm text-muted-foreground">{user?.email}</span>
             <Button variant="outline" size="sm" onClick={handleSignOut}>
               <LogOut className="h-4 w-4 mr-2" />
