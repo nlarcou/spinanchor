@@ -1,10 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import {
   Table,
   TableBody,
@@ -14,7 +22,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, LogOut, Eye, RefreshCw, Users } from 'lucide-react';
+import { Loader2, LogOut, Eye, RefreshCw, Users, ArrowUpDown, Search } from 'lucide-react';
 import { format } from 'date-fns';
 
 interface ContactRequest {
@@ -38,13 +46,61 @@ const statusColors: Record<string, string> = {
   Closed: 'bg-gray-500',
 };
 
+const statusOrder = { New: 0, Viewed: 1, Replied: 2, Closed: 3 };
+
+type SortField = 'date' | 'status';
+type SortDirection = 'asc' | 'desc';
+
 const AdminRequests = () => {
   const [requests, setRequests] = useState<ContactRequest[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedRequest, setSelectedRequest] = useState<ContactRequest | null>(null);
+  const [nameFilter, setNameFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState<string>('all');
+  const [sortField, setSortField] = useState<SortField>('date');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
   const { user, isAdmin, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const filteredAndSortedRequests = useMemo(() => {
+    let filtered = requests;
+
+    // Filter by name
+    if (nameFilter.trim()) {
+      const search = nameFilter.toLowerCase();
+      filtered = filtered.filter(
+        r => r.first_name.toLowerCase().includes(search) || r.last_name.toLowerCase().includes(search)
+      );
+    }
+
+    // Filter by status
+    if (statusFilter !== 'all') {
+      filtered = filtered.filter(r => r.status === statusFilter);
+    }
+
+    // Sort
+    return [...filtered].sort((a, b) => {
+      if (sortField === 'date') {
+        const dateA = new Date(a.created_at).getTime();
+        const dateB = new Date(b.created_at).getTime();
+        return sortDirection === 'asc' ? dateA - dateB : dateB - dateA;
+      } else {
+        const orderA = statusOrder[a.status];
+        const orderB = statusOrder[b.status];
+        return sortDirection === 'asc' ? orderA - orderB : orderB - orderA;
+      }
+    });
+  }, [requests, nameFilter, statusFilter, sortField, sortDirection]);
+
+  const toggleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortField(field);
+      setSortDirection('desc');
+    }
+  };
 
   useEffect(() => {
     if (!authLoading && (!user || !isAdmin)) {
@@ -170,25 +226,70 @@ const AdminRequests = () => {
                 </Button>
               </CardHeader>
               <CardContent>
+                {/* Filters */}
+                <div className="flex flex-col sm:flex-row gap-3 mb-4">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Filter by name..."
+                      value={nameFilter}
+                      onChange={(e) => setNameFilter(e.target.value)}
+                      className="pl-9"
+                    />
+                  </div>
+                  <Select value={statusFilter} onValueChange={setStatusFilter}>
+                    <SelectTrigger className="w-full sm:w-[150px]">
+                      <SelectValue placeholder="Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Statuses</SelectItem>
+                      <SelectItem value="New">New</SelectItem>
+                      <SelectItem value="Viewed">Viewed</SelectItem>
+                      <SelectItem value="Replied">Replied</SelectItem>
+                      <SelectItem value="Closed">Closed</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 <Table>
                   <TableHeader>
                     <TableRow>
                       <TableHead>Name</TableHead>
                       <TableHead>Email</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Date</TableHead>
+                      <TableHead>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-auto p-0 font-medium hover:bg-transparent"
+                          onClick={() => toggleSort('status')}
+                        >
+                          Status
+                          <ArrowUpDown className={`ml-1 h-3 w-3 ${sortField === 'status' ? 'text-primary' : 'text-muted-foreground'}`} />
+                        </Button>
+                      </TableHead>
+                      <TableHead>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="h-auto p-0 font-medium hover:bg-transparent"
+                          onClick={() => toggleSort('date')}
+                        >
+                          Date
+                          <ArrowUpDown className={`ml-1 h-3 w-3 ${sortField === 'date' ? 'text-primary' : 'text-muted-foreground'}`} />
+                        </Button>
+                      </TableHead>
                       <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {requests.length === 0 ? (
+                    {filteredAndSortedRequests.length === 0 ? (
                       <TableRow>
                         <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
                           No requests found
                         </TableCell>
                       </TableRow>
                     ) : (
-                      requests.map((request) => (
+                      filteredAndSortedRequests.map((request) => (
                         <TableRow
                           key={request.id}
                           className={selectedRequest?.id === request.id ? 'bg-muted' : ''}
