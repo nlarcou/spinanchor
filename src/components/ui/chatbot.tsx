@@ -116,10 +116,17 @@ const Chatbot = () => {
       {isOpen && (
         <div className="fixed bottom-24 right-24 w-80 sm:w-96 max-h-[500px] z-50">
           <Card className="border-border bg-card shadow-2xl">
-            <CardHeader className="bg-gradient-to-r from-foreground to-foreground/90 text-background p-4">
-              <CardTitle className="text-lg font-semibold">
+            <CardHeader className="bg-gradient-to-r from-foreground to-foreground/90 text-background p-4 relative">
+              <CardTitle className="text-lg font-semibold pr-8">
                 NSGS Global Support
               </CardTitle>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-3 right-3 p-1 rounded-full hover:bg-background/20 transition-colors"
+                aria-label="Close chat"
+              >
+                <X className="h-5 w-5" />
+              </button>
             </CardHeader>
             <CardContent className="p-0">
               {/* Messages */}
