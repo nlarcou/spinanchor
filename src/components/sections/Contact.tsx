@@ -79,7 +79,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 lg:py-40 bg-background">
+    <section id="contact" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24 max-w-5xl">
           {/* Left column - Contact info */}

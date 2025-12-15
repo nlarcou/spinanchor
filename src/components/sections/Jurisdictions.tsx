@@ -60,7 +60,7 @@ const Jurisdictions = () => {
   ];
 
   return (
-    <section id="jurisdictions" className="py-32 lg:py-40 bg-muted/20">
+    <section id="jurisdictions" className="py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-6">

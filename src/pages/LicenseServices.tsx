@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -39,28 +39,27 @@ const LicenseServices = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm text-muted-foreground tracking-wide mb-6">
+            <p className="text-sm text-muted-foreground tracking-wide mb-4">
               Licensing and Regulatory Support
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-8">
+            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6">
               iGaming license applications and regulatory support
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               We guide iGaming operators and suppliers through the licensing process from start to finish. Whether you need a new license, a renewal, or multi-jurisdiction coverage, we handle the complexity so you can focus on your business.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Button 
                 variant="accent"
                 size="lg"
-                className="font-medium px-8"
+                className="font-medium h-12 px-8"
                 asChild
               >
                 <Link to="/contact?service=license">
                   Request Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Link 
@@ -76,7 +75,7 @@ const LicenseServices = () => {
       </section>
 
       {/* What We Deliver */}
-      <section className="py-20 lg:py-24 bg-muted/20">
+      <section className="py-16 lg:py-20 bg-muted/20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-10">
@@ -98,7 +97,7 @@ const LicenseServices = () => {
       <div className="border-t border-border/40" />
 
       {/* How We Work */}
-      <section className="py-20 lg:py-24 bg-background">
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-10">
@@ -129,7 +128,7 @@ const LicenseServices = () => {
       <div className="border-t border-border/40" />
 
       {/* Common Questions */}
-      <section className="py-20 lg:py-24 bg-muted/20">
+      <section className="py-16 lg:py-20 bg-muted/20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-10">
@@ -156,7 +155,7 @@ const LicenseServices = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 lg:py-24 bg-background border-t border-border/40">
+      <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4">
@@ -168,12 +167,11 @@ const LicenseServices = () => {
             <Button 
               variant="accent"
               size="lg"
-              className="font-medium px-8"
+              className="font-medium h-12 px-8"
               asChild
             >
               <Link to="/contact?service=discovery">
                 Book a Discovery Call
-                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>

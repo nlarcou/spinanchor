@@ -15,7 +15,7 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-32 lg:py-40 bg-muted/20">
+    <section id="team" className="py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Two column layout */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 max-w-5xl">
@@ -43,7 +43,7 @@ const Team = () => {
         </div>
 
         {/* Separator */}
-        <div className="border-t border-border/40 my-16 lg:my-20 max-w-5xl" />
+        <div className="border-t border-border/40 my-12 lg:my-16 max-w-5xl" />
 
         {/* Accountability subsection */}
         <div className="max-w-5xl">
