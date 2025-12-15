@@ -15,26 +15,33 @@ const Hero = () => {
           <div className="text-left space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
               <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">Trusted iGaming Solutions Provider</span>
+              <span className="text-sm font-semibold text-primary">Trusted iGaming Services Partner</span>
             </div>
             
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-              Your <span className="text-primary">Next Step</span> in Gaming Success
+              Launch and scale your <span className="text-primary">iGaming operation</span> with confidence
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-xl">
-              NSGS Global delivers comprehensive iGaming solutions—from licensing and platform setup to operations, payments, and compliance. We power your journey from license to launch, and beyond.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+                Licensing, compliance, payments, and operational setup across key jurisdictions.
+              </p>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+                From application to go live, we handle the hard parts so you can focus on growth.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
                 variant="accent"
                 className="font-semibold shadow-elegant group"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                asChild
               >
-                EXPLORE OUR SERVICES
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Link to="/contact?service=discovery">
+                  BOOK A DISCOVERY CALL
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               
               <Button 
@@ -44,14 +51,19 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/contact">
-                  MAKE AN INQUIRY
+                  REQUEST A CONSULTATION
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </div>
 
+            {/* Micro trust line */}
+            <p className="text-sm text-muted-foreground italic max-w-lg">
+              Jurisdiction experience across Europe and beyond. NDA available. Confidential by default.
+            </p>
+
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -59,7 +71,7 @@ const Hero = () => {
                   </div>
                 </div>
                 <p className="text-3xl font-bold text-navy-dark">50+</p>
-                <p className="text-sm text-muted-foreground">Clients Served</p>
+                <p className="text-sm text-muted-foreground">iGaming businesses supported</p>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
@@ -68,7 +80,7 @@ const Hero = () => {
                   </div>
                 </div>
                 <p className="text-3xl font-bold text-navy-dark">15+</p>
-                <p className="text-sm text-muted-foreground">Jurisdictions</p>
+                <p className="text-sm text-muted-foreground">Jurisdictions covered</p>
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
@@ -76,8 +88,8 @@ const Hero = () => {
                     <TrendingUp className="w-5 h-5 text-primary" />
                   </div>
                 </div>
-                <p className="text-3xl font-bold text-navy-dark">98%</p>
-                <p className="text-sm text-muted-foreground">Success Rate</p>
+                <p className="text-2xl font-bold text-navy-dark">High</p>
+                <p className="text-sm text-muted-foreground">Completion rate on onboarding & submissions</p>
               </div>
             </div>
           </div>
