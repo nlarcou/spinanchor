@@ -120,11 +120,11 @@ const IgamingServices = () => {
         <section className="bg-gradient-to-b from-foreground to-foreground/95 text-background py-16 md:py-24">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-              Professional iGaming Services<br />
-              <span className="text-primary">From License to Launch</span>
+              Services designed for real-world<br />
+              <span className="text-primary">iGaming operations</span>
             </h1>
-            <p className="text-xl md:text-2xl text-background/80 max-w-3xl mx-auto mb-8">
-              Complete solutions for online gambling operators. Licensing, compliance, corporate structuring, and payment infrastructure.
+            <p className="text-xl md:text-2xl text-background/80 max-w-4xl mx-auto mb-8 leading-relaxed">
+              iGaming is complex by nature. Regulation, payments, banking, and compliance intersect across multiple jurisdictions, often with conflicting requirements. Our services are designed to work together, providing a coordinated setup rather than fragmented solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
