@@ -2,42 +2,25 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Scale, FileCheck, Globe, Shield, ClipboardList, CheckCircle } from "lucide-react";
+import { Scale, CheckCircle } from "lucide-react";
 import licenseImage from "@/assets/license-services.jpg";
 
 const LicenseServices = () => {
-  const services = [
-    {
-      icon: FileCheck,
-      title: "License Applications",
-      description: "Expert guidance through the complete gaming license application process."
-    },
-    {
-      icon: Scale,
-      title: "License Maintenance",
-      description: "Ongoing support to maintain your gaming license in good standing with regulators."
-    },
-    {
-      icon: Globe,
-      title: "Multi-Jurisdiction Support",
-      description: "Licensing services across 15+ jurisdictions including Malta, Curacao, and more."
-    },
-    {
-      icon: ClipboardList,
-      title: "Documentation Preparation",
-      description: "Comprehensive preparation of all required licensing documentation and submissions."
-    },
-    {
-      icon: Shield,
-      title: "Regulatory Liaison",
-      description: "Direct communication with regulatory authorities on your behalf."
-    },
-    {
-      icon: CheckCircle,
-      title: "License Renewals",
-      description: "Timely management of license renewal processes and requirements."
-    }
+  const deliverables = [
+    "Full license application preparation and submission",
+    "License renewals and ongoing maintenance",
+    "Regulator liaison and query management",
+    "Multi jurisdiction licensing strategies",
+    "Documentation and evidence package preparation",
+    "License condition monitoring and compliance"
+  ];
+
+  const howWeWork = [
+    { step: "01", title: "Jurisdiction evaluation and strategy" },
+    { step: "02", title: "Application preparation and documentation" },
+    { step: "03", title: "Submission and regulator engagement" },
+    { step: "04", title: "Query response and follow up" },
+    { step: "05", title: "License grant and ongoing maintenance" }
   ];
 
   const jurisdictions = [
@@ -45,11 +28,10 @@ const LicenseServices = () => {
     "Curaçao eGaming",
     "UK Gambling Commission",
     "Gibraltar Licensing Authority",
-    "Isle of Man Gambling Supervision Commission",
+    "Isle of Man GSC",
     "Kahnawake Gaming Commission",
-    "Costa Rica",
     "Estonia",
-    "And many more..."
+    "And more..."
   ];
 
   return (
@@ -67,19 +49,11 @@ const LicenseServices = () => {
                 <span className="text-sm font-semibold text-primary">Licensing Expertise</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-                iGaming License Services
+                iGaming license applications and regulatory support
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Secure your gaming license with confidence. Our expert team provides comprehensive support for gaming license applications, maintenance, and renewals across 15+ jurisdictions worldwide.
+                We guide iGaming operators and suppliers through the licensing process from start to finish. Whether you need a new license, a renewal, or multi jurisdiction coverage, we handle the complexity so you can focus on your business.
               </p>
-              <Button 
-                size="lg" 
-                variant="accent"
-                className="font-semibold shadow-elegant"
-                asChild
-              >
-                <Link to="/contact?service=license">REQUEST CONSULTATION</Link>
-              </Button>
             </div>
             <div className="relative">
               <img 
@@ -92,84 +66,84 @@ const LicenseServices = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* What We Deliver */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Complete Licensing Solutions
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8">
+              What we deliver
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              From application to renewal, we manage every aspect of your gaming license journey.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle className="font-heading text-xl font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <div className="grid md:grid-cols-2 gap-4">
+              {deliverables.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Jurisdictions Section */}
+      {/* How We Work */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Supported Jurisdictions
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-12">
+              How we work
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We provide licensing services across the world's leading iGaming jurisdictions.
-            </p>
+            <div className="space-y-6">
+              {howWeWork.map((item, index) => (
+                <div key={index} className="flex items-center gap-6 p-6 bg-background rounded-xl shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-lg">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground">{item.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {jurisdictions.map((jurisdiction, index) => (
-              <div 
-                key={index} 
-                className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-card transition-shadow"
-              >
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-foreground font-medium">{jurisdiction}</span>
-              </div>
-            ))}
+      {/* Jurisdictions */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8">
+              Jurisdictions we cover
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {jurisdictions.map((jurisdiction, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-center gap-3 bg-secondary/50 p-4 rounded-lg"
+                >
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span className="text-foreground font-medium">{jurisdiction}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Obtain Your Gaming License?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss your licensing needs and start your application process.
-          </p>
-          <Button 
-            size="lg" 
-            variant="accent"
-            className="font-semibold shadow-elegant"
-            asChild
-          >
-            <Link to="/contact?service=license">GET STARTED</Link>
-          </Button>
+          <div className="max-w-2xl mx-auto">
+            <Button 
+              size="lg" 
+              variant="accent"
+              className="font-semibold shadow-elegant mb-4"
+              asChild
+            >
+              <Link to="/contact?service=license">REQUEST A LICENSING CONSULTATION</Link>
+            </Button>
+            <p className="text-sm text-muted-foreground italic">
+              NDA available. Confidential by default.
+            </p>
+          </div>
         </div>
       </section>
 
