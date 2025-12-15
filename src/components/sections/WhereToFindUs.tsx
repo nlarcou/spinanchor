@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WhereToFindUs = () => {
   const events = [
@@ -36,10 +37,10 @@ const WhereToFindUs = () => {
   ];
 
   return (
-    <section className="py-28 lg:py-36 bg-muted/20">
+    <section className="py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
             Where you can find us
           </h2>
@@ -49,35 +50,37 @@ const WhereToFindUs = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {events.map((event, index) => (
             <a
               key={index}
               href={event.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center justify-center p-6 bg-background border border-border/40 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 text-center"
+              className="group flex flex-col items-center justify-center p-6 bg-background border border-border/40 rounded-lg hover:border-border transition-colors text-center min-h-[100px]"
             >
-              <span className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+              <span className="text-base font-semibold text-foreground">
                 {event.name}
               </span>
               <span className="text-xs text-muted-foreground mt-1">
                 {event.subtitle}
               </span>
-              <ExternalLink className="h-3 w-3 text-muted-foreground/50 mt-3 group-hover:text-primary/60 transition-colors" />
             </a>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="pt-4">
+        <div className="mt-12">
           <Button 
             variant="accent"
-            className="font-medium"
-            onClick={() => window.location.href = '/contact'}
+            size="lg"
+            className="font-medium h-12 px-8"
+            asChild
           >
-            Make an Appointment
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/contact">
+              Make an Appointment
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>

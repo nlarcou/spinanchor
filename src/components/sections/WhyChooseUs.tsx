@@ -1,5 +1,3 @@
-import { CheckCircle } from "lucide-react";
-
 const WhyChooseUs = () => {
   const reasons = [
     {
@@ -29,10 +27,10 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="py-28 lg:py-36 bg-muted/20">
+    <section id="about" className="py-24 lg:py-32 bg-muted/20">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
+        <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
             Why clients choose NSGS Global
           </h2>
@@ -41,19 +39,16 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        {/* Reasons - Simple stacked layout, no cards */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-10 max-w-5xl">
+        {/* Reasons - Simple stacked layout */}
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 max-w-5xl">
           {reasons.map((reason, index) => (
-            <div key={index} className="flex items-start gap-4">
-              <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-              <div>
-                <h3 className="font-heading font-semibold text-foreground mb-2">
-                  {reason.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {reason.description}
-                </p>
-              </div>
+            <div key={index}>
+              <h3 className="font-heading font-semibold text-foreground mb-2">
+                {reason.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {reason.description}
+              </p>
             </div>
           ))}
         </div>

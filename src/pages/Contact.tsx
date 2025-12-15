@@ -11,7 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Loader2, ArrowRight } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { supabase } from '@/integrations/supabase/client';
@@ -119,26 +119,15 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-24 lg:py-32 bg-background">
+      <section className="py-20 lg:py-24 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-8">
+            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-6">
               Get in touch
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Whether you are planning a new iGaming launch or scaling an existing operation, we are here to help. All inquiries are handled confidentially.
             </p>
-            <Button 
-              variant="accent"
-              size="lg"
-              className="font-medium px-8"
-              asChild
-            >
-              <Link to="/contact?service=discovery">
-                Book a Discovery Call
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
@@ -146,7 +135,7 @@ const Contact = () => {
       {/* Contact Form Section */}
       <section className="py-20 lg:py-24 bg-muted/20">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24 max-w-5xl">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 max-w-5xl">
             {/* Left - Contact Details */}
             <div>
               <h2 className="font-heading text-2xl font-semibold text-foreground mb-8">

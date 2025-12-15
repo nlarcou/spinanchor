@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HowWeWork = () => {
@@ -32,10 +31,10 @@ const HowWeWork = () => {
   ];
 
   return (
-    <section id="how-we-work" className="py-32 lg:py-40 bg-background">
+    <section id="how-we-work" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-2xl mb-16 lg:mb-20">
+        <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
             How We Work
           </h2>
@@ -77,16 +76,15 @@ const HowWeWork = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 pt-8 border-t border-border/40 max-w-4xl">
+        <div className="mt-12">
           <Button 
             variant="accent"
             size="lg"
-            className="font-medium px-8"
+            className="font-medium h-12 px-8"
             asChild
           >
             <Link to="/contact?service=discovery">
               Book a Discovery Call
-              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

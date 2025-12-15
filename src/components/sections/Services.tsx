@@ -56,10 +56,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-32 lg:py-40 bg-background">
+    <section id="services" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
             End-to-end iGaming services
           </h2>
