@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin, ArrowLeft, Loader2, Send } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowLeft, Loader2, Send, CheckCircle } from "lucide-react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { supabase } from '@/integrations/supabase/client';
@@ -117,15 +117,11 @@ const Contact = () => {
             </Button>
           </div>
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold text-foreground mb-6">
-              READY TO TAKE YOUR 
-              <span className="block text-transparent bg-gradient-to-r from-corporate-gold to-warm-coral bg-clip-text">
-                ONLINE BUSINESS
-              </span>
-              TO THE NEXT LEVEL?
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Let's discuss your iGaming project
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Talk to us – or better yet, drop by one of our offices for a face-to-face consultation.
+            <p className="text-xl text-muted-foreground">
+              Whether you are planning a new launch or scaling an existing operation, our team is ready to support you. All inquiries are handled confidentially.
             </p>
           </div>
         </div>
@@ -262,6 +258,25 @@ const Contact = () => {
                       )}
                     </Button>
                   </form>
+
+                  {/* What happens next */}
+                  <div className="mt-8 pt-6 border-t border-border">
+                    <h3 className="font-semibold text-foreground mb-4">What happens next:</h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Initial review of your requirements</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Confidential discovery call</span>
+                      </li>
+                      <li className="flex items-start gap-3 text-muted-foreground">
+                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <span>Clear next steps and proposal outline</span>
+                      </li>
+                    </ul>
+                  </div>
                 </CardContent>
               </Card>
             </div>
