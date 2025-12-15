@@ -38,7 +38,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="relative bg-foreground text-background">
+      {/* Top gradient border for smooth transition */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-background/20 to-transparent" />
       <div className="container mx-auto px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}

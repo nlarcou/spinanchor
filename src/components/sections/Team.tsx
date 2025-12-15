@@ -28,8 +28,10 @@ const Team = () => {
 
   return (
     <section id="team" className="relative py-24 lg:py-32 bg-muted/20 overflow-hidden">
+      {/* Top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Background structure */}
-      <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
+      <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-50" />
       
       {/* Large decorative accent shape */}
       <div className="absolute -left-[200px] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-primary/5 pointer-events-none" />
