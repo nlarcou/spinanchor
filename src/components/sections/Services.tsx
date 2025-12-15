@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import complianceImage from "@/assets/compliance-services-new.jpg";
 import corporateImage from "@/assets/corporate-services-new.jpg";
 import licenseImage from "@/assets/license-services.jpg";
+import paymentImage from "@/assets/payment-services.jpg";
+import bankingImage from "@/assets/banking-services.jpg";
 
 const Services = () => {
   const services = [
@@ -33,14 +35,14 @@ const Services = () => {
       icon: CreditCard,
       title: "Payments and PSP Enablement",
       description: "Payment gateway integration, PSP onboarding, transaction monitoring, fraud prevention, and multi currency processing.",
-      image: complianceImage,
+      image: paymentImage,
       link: "/processing-services"
     },
     {
       icon: Landmark,
       title: "Banking and Treasury Support",
       description: "Merchant account introductions, banking relationship support, player funds structure guidance, and financial governance.",
-      image: corporateImage,
+      image: bankingImage,
       link: "/banking-services"
     }
   ];
@@ -59,12 +61,12 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 overflow-hidden flex flex-col">
-                <div className="relative h-48 overflow-hidden flex-shrink-0">
+              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 overflow-hidden h-full flex flex-col">
+                <div className="relative h-40 overflow-hidden flex-shrink-0">
                   <img 
                     src={service.image} 
                     alt={service.title}
@@ -72,23 +74,23 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="h-6 w-6 text-white" />
+                    <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="h-5 w-5 text-white" />
                     </div>
                   </div>
                 </div>
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="font-heading text-lg font-semibold text-foreground mb-2">
+                <CardHeader className="text-center pb-2 flex-shrink-0">
+                  <CardTitle className="font-heading text-base font-semibold text-foreground mb-1">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0 flex flex-col flex-grow">
+                  <CardDescription className="text-muted-foreground leading-relaxed text-sm text-center flex-grow">
+                    {service.description}
+                  </CardDescription>
                   <Button 
                     variant="outline" 
-                    className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-auto"
+                    className="w-full group border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-4"
                     onClick={() => window.location.href = service.link}
                   >
                     TELL ME MORE
