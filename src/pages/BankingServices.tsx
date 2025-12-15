@@ -2,42 +2,24 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, DollarSign, Users, TrendingUp, FileText, Briefcase } from "lucide-react";
-import corporateImage from "@/assets/corporate-services-new.jpg";
+import { Landmark, CheckCircle } from "lucide-react";
+import bankingImage from "@/assets/banking-services.jpg";
 
 const BankingServices = () => {
-  const services = [
-    {
-      icon: Building2,
-      title: "Merchant Accounts",
-      description: "Dedicated merchant accounts tailored for high-risk iGaming businesses across multiple jurisdictions."
-    },
-    {
-      icon: DollarSign,
-      title: "Banking Relationships",
-      description: "Establish and maintain banking relationships with institutions experienced in iGaming operations."
-    },
-    {
-      icon: Users,
-      title: "Player Account Management",
-      description: "Comprehensive player wallet management and balance reconciliation systems."
-    },
-    {
-      icon: TrendingUp,
-      title: "Financial Management",
-      description: "Advanced financial management tools and reporting for better cash flow control."
-    },
-    {
-      icon: FileText,
-      title: "Regulatory Reporting",
-      description: "Automated regulatory reporting and compliance documentation for financial authorities."
-    },
-    {
-      icon: Briefcase,
-      title: "Treasury Services",
-      description: "Professional treasury management services to optimize your financial operations."
-    }
+  const deliverables = [
+    "Merchant account introductions and application support",
+    "Banking relationship coordination and guidance",
+    "Player funds structure advisory",
+    "Financial governance and treasury guidance",
+    "Account opening documentation support",
+    "Ongoing banking relationship management"
+  ];
+
+  const howWeWork = [
+    { step: "01", title: "Banking needs assessment" },
+    { step: "02", title: "Institution introductions and matching" },
+    { step: "03", title: "Application and documentation support" },
+    { step: "04", title: "Relationship coordination and ongoing guidance" }
   ];
 
   return (
@@ -51,27 +33,19 @@ const BankingServices = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-                <Building2 className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Banking Solutions</span>
+                <Landmark className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">Banking Support</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-                iGaming Banking Services
+                Banking and treasury support for iGaming businesses
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Specialized banking solutions for iGaming operators. We provide dedicated merchant accounts, banking relationships, and financial management services tailored to the unique needs of the online gaming industry.
+                We help iGaming operators navigate the challenges of securing banking relationships and managing treasury operations. Our role is to provide introductions, guidance, and coordination—not guarantees—so you can approach banking with realistic expectations and strong preparation.
               </p>
-              <Button 
-                size="lg" 
-                variant="accent"
-                className="font-semibold shadow-elegant"
-                asChild
-              >
-                <Link to="/contact?service=banking">REQUEST CONSULTATION</Link>
-              </Button>
             </div>
             <div className="relative">
               <img 
-                src={corporateImage}
+                src={bankingImage}
                 alt="iGaming Banking Services"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-hover"
               />
@@ -80,58 +54,62 @@ const BankingServices = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* What We Deliver */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Complete Banking Solutions
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8">
+              What we deliver
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              End-to-end banking services designed to support your iGaming business with reliable financial infrastructure.
-            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {deliverables.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle className="font-heading text-xl font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+      {/* How We Work */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-12">
+              How we work
+            </h2>
+            <div className="space-y-6">
+              {howWeWork.map((item, index) => (
+                <div key={index} className="flex items-center gap-6 p-6 bg-background rounded-xl shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-lg">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground">{item.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Secure Your Banking Infrastructure?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how our banking solutions can support your iGaming business growth.
-          </p>
-          <Button 
-            size="lg" 
-            variant="accent"
-            className="font-semibold shadow-elegant"
-            asChild
-          >
-            <Link to="/contact?service=banking">GET STARTED</Link>
-          </Button>
+          <div className="max-w-2xl mx-auto">
+            <Button 
+              size="lg" 
+              variant="accent"
+              className="font-semibold shadow-elegant mb-4"
+              asChild
+            >
+              <Link to="/contact?service=banking">REQUEST A BANKING CONSULTATION</Link>
+            </Button>
+            <p className="text-sm text-muted-foreground italic">
+              NDA available. Confidential by default.
+            </p>
+          </div>
         </div>
       </section>
 

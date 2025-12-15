@@ -2,42 +2,24 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Briefcase, Landmark, FileText, Calculator, Globe } from "lucide-react";
+import { Building, CheckCircle } from "lucide-react";
 import corporateImage from "@/assets/corporate-services-new.jpg";
 
 const CorporateServices = () => {
-  const services = [
-    {
-      icon: Building,
-      title: "Company Incorporation",
-      description: "Complete company setup services in preferred iGaming jurisdictions with expert guidance."
-    },
-    {
-      icon: Briefcase,
-      title: "Management Services",
-      description: "Professional corporate management including directorship and secretarial services."
-    },
-    {
-      icon: Landmark,
-      title: "Banking Solutions",
-      description: "Assistance with corporate banking setup and merchant account establishment."
-    },
-    {
-      icon: Calculator,
-      title: "Tax Planning",
-      description: "Optimize your corporate structure with strategic tax planning and compliance."
-    },
-    {
-      icon: FileText,
-      title: "Legal Documentation",
-      description: "Comprehensive legal documentation and contract drafting services."
-    },
-    {
-      icon: Globe,
-      title: "Registered Office",
-      description: "Prestigious business address and registered office services in key jurisdictions."
-    }
+  const deliverables = [
+    "Company incorporation in iGaming-friendly jurisdictions",
+    "Corporate governance and board structuring",
+    "Director and nominee services",
+    "Company secretarial and registered office services",
+    "Tax structuring coordination and advisory",
+    "Ongoing corporate administration and maintenance"
+  ];
+
+  const howWeWork = [
+    { step: "01", title: "Jurisdiction and structure assessment" },
+    { step: "02", title: "Incorporation and entity setup" },
+    { step: "03", title: "Governance and compliance framework" },
+    { step: "04", title: "Ongoing administration and support" }
   ];
 
   return (
@@ -55,19 +37,11 @@ const CorporateServices = () => {
                 <span className="text-sm font-semibold text-primary">Corporate Excellence</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-                iGaming Corporate Services
+                Corporate structuring and governance for iGaming businesses
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Establish and manage your iGaming business with our complete corporate services. From company incorporation to ongoing management, we provide the foundation for your gaming operations.
+                We support iGaming operators and suppliers with company formation, governance, and ongoing corporate administration. Our services ensure your business is structured correctly from day one and maintained to the highest standards.
               </p>
-              <Button 
-                size="lg" 
-                variant="accent"
-                className="font-semibold shadow-elegant"
-                asChild
-              >
-                <Link to="/contact?service=corporate">REQUEST CONSULTATION</Link>
-              </Button>
             </div>
             <div className="relative">
               <img 
@@ -80,58 +54,62 @@ const CorporateServices = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* What We Deliver */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Complete Corporate Solutions
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8">
+              What we deliver
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Professional corporate services tailored for the iGaming industry across multiple jurisdictions.
-            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {deliverables.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle className="font-heading text-xl font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+      {/* How We Work */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-12">
+              How we work
+            </h2>
+            <div className="space-y-6">
+              {howWeWork.map((item, index) => (
+                <div key={index} className="flex items-center gap-6 p-6 bg-background rounded-xl shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-lg">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground">{item.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Establish Your iGaming Company?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let us handle your corporate setup and management so you can focus on growing your business.
-          </p>
-          <Button 
-            size="lg" 
-            variant="accent"
-            className="font-semibold shadow-elegant"
-            asChild
-          >
-            <Link to="/contact?service=corporate">GET STARTED</Link>
-          </Button>
+          <div className="max-w-2xl mx-auto">
+            <Button 
+              size="lg" 
+              variant="accent"
+              className="font-semibold shadow-elegant mb-4"
+              asChild
+            >
+              <Link to="/contact?service=corporate">REQUEST A CORPORATE CONSULTATION</Link>
+            </Button>
+            <p className="text-sm text-muted-foreground italic">
+              NDA available. Confidential by default.
+            </p>
+          </div>
         </div>
       </section>
 

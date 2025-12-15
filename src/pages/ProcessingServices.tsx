@@ -2,42 +2,24 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CreditCard, Wallet, Globe, Shield, TrendingUp, Lock } from "lucide-react";
-import complianceImage from "@/assets/compliance-services-new.jpg";
+import { CreditCard, CheckCircle } from "lucide-react";
+import paymentImage from "@/assets/payment-services.jpg";
 
 const ProcessingServices = () => {
-  const services = [
-    {
-      icon: CreditCard,
-      title: "Payment Gateway Integration",
-      description: "Seamless integration with leading payment gateways optimized for iGaming transactions."
-    },
-    {
-      icon: Globe,
-      title: "Multi-Currency Support",
-      description: "Accept payments in multiple currencies with real-time conversion and competitive rates."
-    },
-    {
-      icon: Wallet,
-      title: "E-Wallet Solutions",
-      description: "Integration with popular e-wallet providers for fast and secure player deposits and withdrawals."
-    },
-    {
-      icon: Shield,
-      title: "Fraud Prevention",
-      description: "Advanced fraud detection and prevention systems to protect your business and players."
-    },
-    {
-      icon: Lock,
-      title: "Secure Transactions",
-      description: "PCI-DSS compliant payment processing with end-to-end encryption and tokenization."
-    },
-    {
-      icon: TrendingUp,
-      title: "Transaction Monitoring",
-      description: "Real-time transaction monitoring and reporting with comprehensive analytics."
-    }
+  const deliverables = [
+    "Payment gateway evaluation and integration support",
+    "PSP onboarding coordination and documentation",
+    "Transaction monitoring and reporting frameworks",
+    "Fraud prevention strategy and tool guidance",
+    "Multi currency processing enablement",
+    "Chargeback management and dispute coordination"
+  ];
+
+  const howWeWork = [
+    { step: "01", title: "Payment requirements assessment" },
+    { step: "02", title: "PSP and gateway introductions" },
+    { step: "03", title: "Onboarding and integration support" },
+    { step: "04", title: "Monitoring and optimisation guidance" }
   ];
 
   return (
@@ -52,27 +34,19 @@ const ProcessingServices = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 <CreditCard className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">Payment Processing</span>
+                <span className="text-sm font-semibold text-primary">Payment Enablement</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-navy-dark leading-tight">
-                iGaming Processing Services
+                Payment and PSP enablement for iGaming operators
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Comprehensive payment processing solutions designed specifically for iGaming operators. We provide secure, reliable, and scalable payment infrastructure with multi-currency support and advanced fraud prevention.
+                We support iGaming businesses in establishing and optimising their payment infrastructure. From PSP introductions to integration coordination, we help you navigate the complexities of iGaming payments without overpromising outcomes.
               </p>
-              <Button 
-                size="lg" 
-                variant="accent"
-                className="font-semibold shadow-elegant"
-                asChild
-              >
-                <Link to="/contact?service=processing">REQUEST CONSULTATION</Link>
-              </Button>
             </div>
             <div className="relative">
               <img 
-                src={complianceImage}
-                alt="iGaming Processing Services"
+                src={paymentImage}
+                alt="iGaming Payment Services"
                 className="w-full h-[500px] object-cover rounded-2xl shadow-hover"
               />
             </div>
@@ -80,58 +54,62 @@ const ProcessingServices = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* What We Deliver */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Complete Payment Processing Solutions
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-8">
+              What we deliver
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              End-to-end payment processing services to power secure and efficient transactions for your iGaming business.
-            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {deliverables.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 p-4 bg-secondary/50 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle className="font-heading text-xl font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+      {/* How We Work */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-12">
+              How we work
+            </h2>
+            <div className="space-y-6">
+              {howWeWork.map((item, index) => (
+                <div key={index} className="flex items-center gap-6 p-6 bg-background rounded-xl shadow-sm">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <span className="text-primary font-bold text-lg">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading text-xl font-semibold text-foreground">{item.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Optimize Your Payment Processing?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how our processing solutions can enhance your iGaming operations.
-          </p>
-          <Button 
-            size="lg" 
-            variant="accent"
-            className="font-semibold shadow-elegant"
-            asChild
-          >
-            <Link to="/contact?service=processing">GET STARTED</Link>
-          </Button>
+          <div className="max-w-2xl mx-auto">
+            <Button 
+              size="lg" 
+              variant="accent"
+              className="font-semibold shadow-elegant mb-4"
+              asChild
+            >
+              <Link to="/contact?service=processing">REQUEST A PAYMENTS CONSULTATION</Link>
+            </Button>
+            <p className="text-sm text-muted-foreground italic">
+              NDA available. Confidential by default.
+            </p>
+          </div>
         </div>
       </section>
 
