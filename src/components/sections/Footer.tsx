@@ -26,7 +26,7 @@ const Footer = () => {
       { name: "Corporate Services", href: "/corporate-services" }
     ],
     company: [
-      { name: "Jurisdictions", section: "jurisdictions" },
+      { name: "Jurisdictions", href: "/jurisdictions" },
       { name: "How We Work", section: "how-we-work" },
       { name: "Expertise", section: "team" },
       { name: "Contact", href: "/contact" }
