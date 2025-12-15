@@ -37,8 +37,10 @@ const WhereToFindUs = () => {
   ];
 
   return (
-    <section className="py-24 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32 bg-muted/20">
+      {/* Corner accent */}
+      <div className="absolute inset-0 bg-corner-accent pointer-events-none" style={{ transform: 'rotate(180deg)' }} />
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
@@ -57,7 +59,7 @@ const WhereToFindUs = () => {
               href={event.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center justify-center p-6 bg-background border border-border/40 rounded-lg hover:border-border transition-colors text-center min-h-[100px]"
+              className="group flex flex-col items-center justify-center p-6 bg-card border border-border/40 rounded-lg hover:border-primary/30 hover:shadow-subtle transition-all duration-200 text-center min-h-[100px]"
             >
               <span className="text-base font-semibold text-foreground">
                 {event.name}
