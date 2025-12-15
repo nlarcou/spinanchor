@@ -5,8 +5,49 @@ import heroImage from "@/assets/hero-igaming.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center bg-background bg-grid-pattern">
-      <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-24">
+    <section id="home" className="relative min-h-[85vh] flex items-center bg-background overflow-hidden">
+      {/* Layered background elements */}
+      {/* Primary gradient - soft blue glow from top-right */}
+      <div 
+        className="absolute top-0 right-0 w-[70%] h-[80%] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 80% 70% at 70% 20%, hsl(222 49% 49% / 0.06) 0%, transparent 60%)',
+        }}
+      />
+      
+      {/* Secondary gradient - subtle warm accent from bottom-left */}
+      <div 
+        className="absolute bottom-0 left-0 w-[50%] h-[60%] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 70% 60% at 20% 80%, hsl(222 49% 39% / 0.04) 0%, transparent 50%)',
+        }}
+      />
+      
+      {/* Geometric accent lines */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Diagonal line accent */}
+        <div 
+          className="absolute top-[10%] right-[5%] w-[400px] h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"
+          style={{ transform: 'rotate(-15deg)' }}
+        />
+        <div 
+          className="absolute top-[15%] right-[8%] w-[300px] h-[1px] bg-gradient-to-r from-transparent via-primary/8 to-transparent"
+          style={{ transform: 'rotate(-15deg)' }}
+        />
+        
+        {/* Subtle corner arc */}
+        <div 
+          className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] rounded-full border border-primary/5"
+        />
+        <div 
+          className="absolute -top-[300px] -right-[300px] w-[800px] h-[800px] rounded-full border border-primary/3"
+        />
+      </div>
+      
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
+      
+      <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Content */}
           <div className="max-w-xl">
