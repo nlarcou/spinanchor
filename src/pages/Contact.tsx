@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin, ArrowLeft, Loader2, Send, CheckCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Loader2, ArrowRight } from "lucide-react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
 import { supabase } from '@/integrations/supabase/client';
@@ -16,9 +21,8 @@ import { z } from 'zod';
 const contactSchema = z.object({
   firstName: z.string().trim().min(1, 'First name is required').max(100),
   lastName: z.string().trim().min(1, 'Last name is required').max(100),
-  email: z.string().trim().email('Invalid email address').max(255),
+  email: z.string().trim().email('Please enter a valid email').max(255),
   company: z.string().trim().max(200).optional(),
-  phone: z.string().trim().max(50).optional(),
   service: z.string().optional(),
   message: z.string().trim().min(1, 'Message is required').max(2000),
 });
@@ -30,12 +34,26 @@ const Contact = () => {
     lastName: '',
     email: '',
     company: '',
-    phone: '',
     service: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const faqs = [
+    {
+      question: "Confidentiality and NDA",
+      answer: "All inquiries are treated as confidential by default. We are happy to sign a mutual NDA before any detailed discussions if preferred. Your business information is never shared with third parties."
+    },
+    {
+      question: "Typical response time",
+      answer: "We aim to respond to all inquiries within one business day. For urgent matters, please indicate this in your message and we will prioritise accordingly."
+    },
+    {
+      question: "What information to include",
+      answer: "To help us understand your needs, please include your business model, target jurisdictions, current status (new venture or existing operation), and any specific challenges you are facing."
+    }
+  ];
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
@@ -54,7 +72,7 @@ const Contact = () => {
     const validation = contactSchema.safeParse(formData);
     if (!validation.success) {
       toast({
-        title: 'Validation Error',
+        title: 'Please check your input',
         description: validation.error.errors[0].message,
         variant: 'destructive',
       });
@@ -68,7 +86,6 @@ const Contact = () => {
       last_name: formData.lastName.trim(),
       email: formData.email.trim(),
       company: formData.company.trim() || null,
-      phone: formData.phone.trim() || null,
       service: formData.service || null,
       message: formData.message.trim(),
     });
@@ -77,21 +94,20 @@ const Contact = () => {
 
     if (error) {
       toast({
-        title: 'Error',
-        description: 'Failed to submit your message. Please try again.',
+        title: 'Something went wrong',
+        description: 'Please try again or email us directly.',
         variant: 'destructive',
       });
     } else {
       toast({
-        title: 'Message Sent!',
-        description: 'Thank you for contacting us. We will get back to you soon.',
+        title: 'Message sent',
+        description: "We'll be in touch shortly.",
       });
       setFormData({
         firstName: '',
         lastName: '',
         email: '',
         company: '',
-        phone: '',
         service: '',
         message: '',
       });
@@ -103,249 +119,211 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-professional-navy via-professional-blue to-background py-20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 mb-8">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => window.history.back()}
-              className="text-foreground hover:text-primary"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
-            </Button>
-          </div>
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Let's discuss your iGaming project
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground leading-[1.1] tracking-tight mb-8">
+              Get in touch
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Whether you are planning a new launch or scaling an existing operation, our team is ready to support you. All inquiries are handled confidentially.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+              Whether you are planning a new iGaming launch or scaling an existing operation, we are here to help. All inquiries are handled confidentially.
             </p>
+            <Button 
+              variant="accent"
+              size="lg"
+              className="font-medium px-8"
+              asChild
+            >
+              <Link to="/contact?service=discovery">
+                Book a Discovery Call
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+      <section className="py-20 lg:py-24 bg-muted/20">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 lg:gap-24 max-w-5xl">
+            {/* Left - Contact Details */}
             <div>
-              <Card className="border-border bg-card shadow-elegant">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-foreground">
-                    Let's talk! Get in touch
-                  </CardTitle>
-                  <p className="text-muted-foreground">
-                    Complete this form and one of our experts will contact you:
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="firstName">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          value={formData.firstName}
-                          onChange={(e) => handleChange('firstName', e.target.value)}
-                          required
-                          className="mt-1"
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="lastName">Last Name *</Label>
-                        <Input
-                          id="lastName"
-                          value={formData.lastName}
-                          onChange={(e) => handleChange('lastName', e.target.value)}
-                          required
-                          className="mt-1"
-                          disabled={isSubmitting}
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleChange('email', e.target.value)}
-                        required
-                        className="mt-1"
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="company">Company</Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={(e) => handleChange('company', e.target.value)}
-                        className="mt-1"
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="phone">Phone</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleChange('phone', e.target.value)}
-                        className="mt-1"
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="service">Service Interest</Label>
-                      <Select
-                        value={formData.service}
-                        onValueChange={(value) => handleChange('service', value)}
-                        disabled={isSubmitting}
-                      >
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="compliance">iGaming Compliance Services</SelectItem>
-                          <SelectItem value="corporate">iGaming Corporate Services</SelectItem>
-                          <SelectItem value="license">iGaming License Services</SelectItem>
-                          <SelectItem value="processing">iGaming Processing Services</SelectItem>
-                          <SelectItem value="banking">iGaming Banking Services</SelectItem>
-                          <SelectItem value="consultation">General Consultation</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea 
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => handleChange('message', e.target.value)}
-                        required 
-                        className="mt-1 min-h-[120px]"
-                        placeholder="Please describe your needs and how we can help you..."
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                    
-                    <Button 
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-corporate-gold to-warm-coral hover:from-corporate-gold/90 hover:to-warm-coral/90 text-background font-semibold shadow-elegant"
-                      size="lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
+              <h2 className="font-heading text-2xl font-semibold text-foreground mb-8">
+                Contact details
+              </h2>
+              
+              <div className="space-y-8">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <p className="text-foreground">info@nsgs.pro</p>
+                  <p className="text-foreground">partners@nsgs.pro</p>
+                </div>
 
-                  {/* What happens next */}
-                  <div className="mt-8 pt-6 border-t border-border">
-                    <h3 className="font-semibold text-foreground mb-4">What happens next:</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-3 text-muted-foreground">
-                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Initial review of your requirements</span>
-                      </li>
-                      <li className="flex items-start gap-3 text-muted-foreground">
-                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Confidential discovery call</span>
-                      </li>
-                      <li className="flex items-start gap-3 text-muted-foreground">
-                        <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span>Clear next steps and proposal outline</span>
-                      </li>
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Phone</p>
+                  <p className="text-foreground">+357 96 281 311</p>
+                </div>
+
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Office</p>
+                  <p className="text-foreground">
+                    Van Dyke, 6<br />
+                    Solonion Building<br />
+                    6037, Larnaca, Cyprus
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-border/40">
+                <p className="text-sm text-muted-foreground">
+                  Confidential by default. NDA available on request.
+                </p>
+              </div>
             </div>
 
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-foreground mb-8">Our Office</h2>
-                
-                <Card className="border-border bg-card shadow-elegant">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <MapPin className="h-6 w-6 text-primary mt-1" />
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">CYPRUS OFFICE</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Van Dyke, 6<br />
-                          Solonion Building<br />
-                          6037, Larnaca<br />
-                          Cyprus
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="grid grid-cols-1 gap-6">
-                <Card className="border-border bg-card shadow-elegant">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Mail className="h-6 w-6 text-primary" />
-                      <div>
-                        <h3 className="font-semibold text-foreground">Email</h3>
-                        <p className="text-muted-foreground">info@nsgs.pro</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-border bg-card shadow-elegant">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <Phone className="h-6 w-6 text-primary" />
-                      <div>
-                        <h3 className="font-semibold text-foreground">Phone</h3>
-                        <p className="text-muted-foreground">+357 96 281 311</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              <div className="bg-gradient-to-br from-professional-navy/20 to-professional-blue/20 rounded-lg p-6 border border-border">
-                <h3 className="text-lg font-semibold text-foreground mb-3">Business Hours</h3>
-                <div className="space-y-2 text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
+            {/* Right - Form */}
+            <div>
+              <h2 className="font-heading text-2xl font-semibold text-foreground mb-8">
+                Send us a message
+              </h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-sm">
+                      First name <span className="text-primary">*</span>
+                    </Label>
+                    <Input
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={(e) => handleChange('firstName', e.target.value)}
+                      className="h-12 border-border/60"
+                      required
+                      disabled={isSubmitting}
+                    />
                   </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>10:00 AM - 2:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-sm">
+                      Last name <span className="text-primary">*</span>
+                    </Label>
+                    <Input
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={(e) => handleChange('lastName', e.target.value)}
+                      className="h-12 border-border/60"
+                      required
+                      disabled={isSubmitting}
+                    />
                   </div>
                 </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm">
+                      Email <span className="text-primary">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleChange('email', e.target.value)}
+                      className="h-12 border-border/60"
+                      required
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="company" className="text-sm">
+                      Company
+                    </Label>
+                    <Input
+                      id="company"
+                      value={formData.company}
+                      onChange={(e) => handleChange('company', e.target.value)}
+                      className="h-12 border-border/60"
+                      disabled={isSubmitting}
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="service" className="text-sm">
+                    Service interest
+                  </Label>
+                  <Select
+                    value={formData.service}
+                    onValueChange={(value) => handleChange('service', value)}
+                    disabled={isSubmitting}
+                  >
+                    <SelectTrigger className="h-12 border-border/60">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border-border">
+                      <SelectItem value="license">Licensing and Regulatory Support</SelectItem>
+                      <SelectItem value="compliance">Compliance and AML</SelectItem>
+                      <SelectItem value="processing">Payments and PSP Enablement</SelectItem>
+                      <SelectItem value="banking">Banking and Treasury Support</SelectItem>
+                      <SelectItem value="corporate">Corporate Services</SelectItem>
+                      <SelectItem value="discovery">Discovery Call</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm">
+                    Message <span className="text-primary">*</span>
+                  </Label>
+                  <Textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) => handleChange('message', e.target.value)}
+                    className="border-border/60 resize-none"
+                    rows={5}
+                    placeholder="Tell us about your project..."
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <Button 
+                  type="submit"
+                  variant="accent"
+                  className="font-medium h-12 px-8"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Inquiry'
+                  )}
+                </Button>
+              </form>
+
+              {/* FAQ Accordion */}
+              <div className="mt-12 pt-8 border-t border-border/40">
+                <h3 className="font-heading text-lg font-semibold text-foreground mb-6">
+                  Common questions
+                </h3>
+                <Accordion type="single" collapsible className="space-y-3">
+                  {faqs.map((faq, index) => (
+                    <AccordionItem 
+                      key={index} 
+                      value={`item-${index}`}
+                      className="border border-border/40 rounded-lg px-5 bg-background"
+                    >
+                      <AccordionTrigger className="text-left text-sm font-medium text-foreground hover:no-underline py-4">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </div>
