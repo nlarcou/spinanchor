@@ -72,9 +72,9 @@ const PrivacyPolicy = () => {
             </p>
             <div className="bg-muted/30 p-6 rounded-lg">
               <p className="text-foreground font-semibold">NSGS Global</p>
-              <p className="text-muted-foreground">United Nations Street, 44</p>
-              <p className="text-muted-foreground">Orthodoxou Tower, 3rd-4th Floor</p>
-              <p className="text-muted-foreground">6042, Larnaka, Cyprus</p>
+              <p className="text-muted-foreground">Van Dyke, 6</p>
+              <p className="text-muted-foreground">Solonion Building</p>
+              <p className="text-muted-foreground">6037, Larnaca, Cyprus</p>
               <p className="text-muted-foreground mt-2">Email: info@nsgs.pro</p>
               <p className="text-muted-foreground">Phone: +357 96 281 311</p>
             </div>
