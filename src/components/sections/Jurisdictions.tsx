@@ -1,139 +1,118 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Globe, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import jurisdictionsImage from "@/assets/jurisdictions.jpg";
 
 const Jurisdictions = () => {
   const jurisdictions = [
     {
       name: "Malta Gaming Authority (MGA)",
-      description: "Premium EU jurisdiction with strict regulations and excellent reputation in the iGaming industry.",
-      features: ["EU Jurisdiction", "Premium Reputation", "Comprehensive Framework"]
+      bestFor: "Best for established operators targeting EU markets",
+      details: [
+        "Known for regulatory depth and strong reputation",
+        "Structured compliance and higher entry requirements"
+      ]
     },
     {
-      name: "Curaçao eGaming",
-      description: "One of the most established gaming jurisdictions with flexible regulations and quick licensing processes.",
-      features: ["Established Jurisdiction", "Flexible Regulations", "Quick Processing"]
+      name: "Curaçao",
+      bestFor: "Best for fast go live and cost efficient market entry",
+      details: [
+        "Evolving regulatory framework with increased substance requirements",
+        "Suitable for specific business models and markets"
+      ]
     },
     {
       name: "UK Gambling Commission",
-      description: "World's most stringent gaming regulator with access to the lucrative UK market.",
-      features: ["Premium Market", "Strict Standards", "Global Recognition"]
+      bestFor: "Best for operators targeting the UK market",
+      details: [
+        "Most stringent regulatory requirements globally",
+        "Premium market access with high compliance standards"
+      ]
     },
     {
-      name: "Gibraltar Licensing Authority",
-      description: "British territory offering tax advantages and access to EU markets.",
-      features: ["Tax Benefits", "EU Access", "Strong Reputation"]
+      name: "Gibraltar",
+      bestFor: "Best for established operators seeking tax efficiency",
+      details: [
+        "Strong reputation and regulatory framework",
+        "Access to EU markets with favourable tax structure"
+      ]
     },
     {
       name: "Isle of Man",
-      description: "Established jurisdiction known for innovation and operator-friendly regulations.",
-      features: ["Innovation Hub", "Operator Friendly", "Established Framework"]
+      bestFor: "Best for operators seeking innovation-friendly regulation",
+      details: [
+        "Established framework with operator-friendly approach",
+        "Strong reputation for esports and crypto-related gaming"
+      ]
     },
     {
       name: "Estonia",
-      description: "Digital-forward EU member state with efficient licensing processes.",
-      features: ["EU Member", "Digital Focus", "Efficient Processing"]
+      bestFor: "Best for digital-first operators targeting EU markets",
+      details: [
+        "EU member state with efficient licensing processes",
+        "Modern regulatory approach with digital focus"
+      ]
     }
   ];
 
   return (
     <section id="jurisdictions" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Content */}
-          <div>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
-              iGaming Jurisdictions
-            </h2>
-            <h3 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Your Global Partner
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Streamline your corporate, compliance and licensing requirements in the world's most 
-              popular iGaming jurisdictions with our business solutions.
-            </p>
-            
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start space-x-4">
-                <Globe className="h-6 w-6 text-primary mt-1" />
-                <div>
-                  <h4 className="font-heading font-semibold text-foreground mb-2">
-                    Why a Global Instead of Local Provider?
-                  </h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Our alliances with payment service providers, software providers, and banks allow us to 
-                    provide timely guidance on compliance regulations.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <MapPin className="h-6 w-6 text-primary mt-1" />
-                <div>
-                  <h4 className="font-heading font-semibold text-foreground mb-2">
-                    The Wider Context
-                  </h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    From Luxembourg to Singapore, our team has the knowledge and experience to ensure 
-                    a seamless process for you.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <img 
-                src={jurisdictionsImage}
-                alt="iGaming Jurisdictions worldwide"
-                className="rounded-2xl shadow-card"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
-            </div>
-          </div>
+        {/* Header */}
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            iGaming jurisdictions we support
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Choosing the right jurisdiction is a strategic decision that impacts licensing timelines, compliance obligations, payments, and long term scalability. We support clients across leading iGaming jurisdictions, helping them select and operate in markets aligned with their business model.
+          </p>
+        </div>
 
-          {/* Right Content - Jurisdictions Grid */}
-          <div className="space-y-6">
-            {jurisdictions.map((jurisdiction, index) => (
-              <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-heading font-semibold text-foreground mb-2">
-                        {jurisdiction.name}
-                      </h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                        {jurisdiction.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {jurisdiction.features.map((feature, featureIndex) => (
-                          <span 
-                            key={featureIndex}
-                            className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+        {/* Jurisdictions Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {jurisdictions.map((jurisdiction, index) => (
+            <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50 h-full">
+              <CardContent className="p-6 flex flex-col h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="h-5 w-5 text-white" />
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-            
-            <div className="pt-4">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground group" asChild>
-                <Link to="/license-services">
-                  Learn More About Jurisdictions
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div>
-          </div>
+                  <h3 className="font-heading font-semibold text-foreground text-lg">
+                    {jurisdiction.name}
+                  </h3>
+                </div>
+                <p className="text-primary font-medium text-sm mb-3">
+                  {jurisdiction.bestFor}
+                </p>
+                <ul className="space-y-2 flex-grow">
+                  {jurisdiction.details.map((detail, detailIndex) => (
+                    <li key={detailIndex} className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <p className="text-lg text-muted-foreground mb-6">
+            Not sure which jurisdiction fits your business?
+          </p>
+          <Button 
+            size="lg" 
+            variant="accent"
+            className="font-semibold shadow-elegant group"
+            asChild
+          >
+            <Link to="/contact?service=discovery">
+              BOOK A DISCOVERY CALL
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
