@@ -52,7 +52,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-background/80 mb-6 leading-relaxed">
-              Next Step Gaming Services - Your partner in iGaming excellence. From license to launch, and beyond.
+              NSGS Global is a specialised iGaming services provider supporting licensing, compliance, payments, banking, and operational setup across regulated markets.
             </p>
             
             {/* Contact Info */}
