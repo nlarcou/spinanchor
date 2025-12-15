@@ -27,9 +27,13 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-muted/20 bg-dot-pattern">
+    <section id="about" className="relative py-24 lg:py-32 bg-background">
+      {/* Top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+      {/* Subtle dot pattern */}
+      <div className="absolute inset-0 bg-dot-pattern pointer-events-none opacity-60" />
       {/* Corner accent */}
-      <div className="absolute inset-0 bg-corner-accent pointer-events-none" />
+      <div className="absolute inset-0 bg-corner-accent pointer-events-none opacity-70" />
       <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">

@@ -79,7 +79,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
+    <section id="contact" className="py-24 lg:py-32 bg-muted/10 relative overflow-hidden">
+      {/* Top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Subtle background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Soft gradient overlay */}

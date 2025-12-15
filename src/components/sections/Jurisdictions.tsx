@@ -115,11 +115,13 @@ const Jurisdictions = () => {
 
   return (
     <section id="jurisdictions" className="relative py-24 lg:py-32 bg-muted/20 overflow-hidden">
+      {/* Top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Abstract geographic pattern */}
       <GeoPattern />
       
-      {/* Radial glow */}
-      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+      {/* Radial glow - reduced opacity for balance */}
+      <div className="absolute inset-0 bg-radial-glow pointer-events-none opacity-60" />
       
       <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header with subtle accent line */}

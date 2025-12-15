@@ -37,9 +37,13 @@ const WhereToFindUs = () => {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 bg-muted/20">
+    <section className="relative py-24 lg:py-32 bg-background">
+      {/* Top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Corner accent */}
       <div className="absolute inset-0 bg-corner-accent pointer-events-none" style={{ transform: 'rotate(180deg)' }} />
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-40" />
       <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">

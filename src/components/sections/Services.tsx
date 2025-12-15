@@ -107,9 +107,11 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-background">
+    <section id="services" className="relative py-24 lg:py-32 bg-muted/10">
+      {/* Subtle top border for separation */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Subtle radial glow from top */}
-      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-glow pointer-events-none opacity-70" />
       <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">
