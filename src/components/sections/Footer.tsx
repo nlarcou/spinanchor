@@ -19,16 +19,16 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: "Compliance Services", href: "/compliance-services" },
-      { name: "Corporate Services", href: "/corporate-services" },
-      { name: "License Services", href: "/license-services" },
-      { name: "Processing Services", href: "/processing-services" },
-      { name: "Banking Services", href: "/banking-services" }
+      { name: "Licensing and Regulatory Support", href: "/license-services" },
+      { name: "Compliance and AML", href: "/compliance-services" },
+      { name: "Payments and PSP Enablement", href: "/processing-services" },
+      { name: "Banking and Treasury Support", href: "/banking-services" },
+      { name: "Corporate Services", href: "/corporate-services" }
     ],
     company: [
-      { name: "About", section: "about" },
-      { name: "Expertise", section: "team" },
       { name: "Jurisdictions", section: "jurisdictions" },
+      { name: "How We Work", section: "how-we-work" },
+      { name: "Expertise", section: "team" },
       { name: "Contact", href: "/contact" }
     ],
     legal: [
