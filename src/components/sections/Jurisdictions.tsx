@@ -60,8 +60,10 @@ const Jurisdictions = () => {
   ];
 
   return (
-    <section id="jurisdictions" className="py-24 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="jurisdictions" className="relative py-24 lg:py-32 bg-muted/20">
+      {/* Radial glow */}
+      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-2xl mb-6">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
@@ -79,7 +81,7 @@ const Jurisdictions = () => {
           {jurisdictions.map((jurisdiction, index) => (
             <div
               key={index}
-              className="p-6 lg:p-7 bg-background border border-border/50 rounded-xl"
+              className="p-6 lg:p-7 bg-card border border-border/40 rounded-xl shadow-subtle hover:shadow-card transition-shadow duration-200"
             >
               <h3 className="font-heading text-base font-semibold text-foreground mb-2">
                 {jurisdiction.name}

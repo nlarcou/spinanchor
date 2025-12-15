@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-igaming.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center bg-background">
+    <section id="home" className="relative min-h-[85vh] flex items-center bg-background bg-grid-pattern">
       <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Content */}
@@ -72,7 +72,7 @@ const Hero = () => {
       </div>
 
       {/* Statistics strip - de-emphasized, below hero content */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-border/30 bg-muted/30">
+      <div className="absolute bottom-0 left-0 right-0 border-t border-border/50 bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap justify-start gap-12 lg:gap-16 py-6">
             <div className="flex items-baseline gap-2">

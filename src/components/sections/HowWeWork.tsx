@@ -31,8 +31,10 @@ const HowWeWork = () => {
   ];
 
   return (
-    <section id="how-we-work" className="py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="how-we-work" className="relative py-24 lg:py-32 bg-background overflow-hidden">
+      {/* Subtle lines pattern */}
+      <div className="absolute inset-0 bg-lines-pattern pointer-events-none" />
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
@@ -51,7 +53,7 @@ const HowWeWork = () => {
               <div className="grid lg:grid-cols-[200px_1fr] gap-4 lg:gap-12 py-8 lg:py-10">
                 {/* Left: Number and Title */}
                 <div>
-                  <span className="text-3xl lg:text-4xl font-heading text-primary/25 block mb-2 lg:mb-3">
+                  <span className="text-3xl lg:text-4xl font-heading font-semibold text-primary/20 block mb-2 lg:mb-3">
                     {step.number}
                   </span>
                   <h3 className="font-heading text-lg font-medium text-foreground leading-snug">

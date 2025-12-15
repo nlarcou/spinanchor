@@ -27,8 +27,10 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-muted/20">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="about" className="relative py-24 lg:py-32 bg-muted/20 bg-dot-pattern">
+      {/* Corner accent */}
+      <div className="absolute inset-0 bg-corner-accent pointer-events-none" />
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">

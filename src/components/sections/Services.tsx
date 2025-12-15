@@ -56,8 +56,10 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="services" className="relative py-24 lg:py-32 bg-background">
+      {/* Subtle radial glow from top */}
+      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
@@ -74,7 +76,7 @@ const Services = () => {
             <Link
               key={index}
               to={service.link}
-              className="group block p-8 lg:p-10 bg-background border border-border/50 rounded-xl hover:border-border transition-colors duration-200"
+              className="group block p-8 lg:p-10 bg-card border border-border/50 rounded-xl hover:border-primary/30 hover:shadow-card transition-all duration-200"
             >
               <h3 className="font-heading text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                 {service.title}
