@@ -98,7 +98,7 @@ const Chatbot = () => {
   return (
     <>
       {/* Chat button */}
-      <div className="fixed bottom-6 right-24 z-50">
+      <div className="fixed bottom-6 right-20 sm:right-24 z-50">
         <Button
           onClick={() => setIsOpen(!isOpen)}
           className="rounded-full w-14 h-14 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg"
@@ -114,7 +114,7 @@ const Chatbot = () => {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-24 w-80 sm:w-96 max-h-[500px] z-50">
+        <div className="fixed bottom-20 sm:bottom-24 left-4 right-4 sm:left-auto sm:right-24 sm:w-96 max-h-[500px] z-50">
           <Card className="border-border bg-card shadow-2xl">
             <CardHeader className="bg-gradient-to-r from-foreground to-foreground/90 text-background p-4 relative">
               <CardTitle className="text-lg font-semibold pr-8">
