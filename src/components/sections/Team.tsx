@@ -8,54 +8,112 @@ const Team = () => {
   ];
 
   const accountabilityPoints = [
-    "Senior-led oversight on all engagements",
-    "Single point of contact for each client",
-    "Jurisdiction-specific expertise per project",
-    "Confidential, NDA-first approach"
+    {
+      number: "01",
+      text: "Senior-led oversight on all engagements"
+    },
+    {
+      number: "02", 
+      text: "Single point of contact for each client"
+    },
+    {
+      number: "03",
+      text: "Jurisdiction-specific expertise per project"
+    },
+    {
+      number: "04",
+      text: "Confidential, NDA-first approach"
+    }
   ];
 
   return (
-    <section id="team" className="relative py-24 lg:py-32 bg-muted/20 bg-grid-pattern">
+    <section id="team" className="relative py-24 lg:py-32 bg-muted/20 overflow-hidden">
+      {/* Background structure */}
+      <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
+      
+      {/* Large decorative accent shape */}
+      <div className="absolute -left-[200px] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-primary/5 pointer-events-none" />
+      <div className="absolute -left-[250px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-primary/3 pointer-events-none" />
+      
       <div className="container mx-auto px-6 lg:px-8 relative">
-        {/* Two column layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 max-w-5xl">
-          {/* Left column */}
-          <div>
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
-              Our Expertise and Delivery Model
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We operate through a senior-led delivery model supported by a trusted network of specialists. Our expertise spans compliance, licensing, payments, corporate services, and technology across multiple jurisdictions.
-            </p>
-          </div>
+        {/* Main content panel with subtle elevation */}
+        <div className="max-w-5xl relative">
+          {/* Left accent bar */}
+          <div className="absolute -left-4 lg:-left-8 top-0 bottom-0 w-[3px] bg-gradient-to-b from-primary/25 via-primary/10 to-transparent rounded-full" />
           
-          {/* Right column - Expertise list */}
-          <div className="lg:pt-2">
-            <ul className="space-y-4">
-              {expertiseAreas.map((area, index) => (
-                <li key={index} className="flex items-start gap-3 text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                  <span className="leading-relaxed">{area}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Two column layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Left column */}
+            <div>
+              <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
+                Our Expertise and Delivery Model
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We operate through a senior-led delivery model supported by a trusted network of specialists. Our expertise spans compliance, licensing, payments, corporate services, and technology across multiple jurisdictions.
+              </p>
+            </div>
+            
+            {/* Right column - Expertise list with enhanced styling */}
+            <div className="lg:pt-2">
+              <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-6 lg:p-8">
+                <ul className="space-y-4">
+                  {expertiseAreas.map((area, index) => (
+                    <li key={index} className="flex items-start gap-4 text-foreground group">
+                      {/* Number indicator */}
+                      <span className="text-xs font-heading font-semibold text-primary/40 mt-1 w-5 flex-shrink-0">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      {/* Vertical line connector */}
+                      <div className="relative flex-shrink-0 w-[2px] self-stretch">
+                        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/5" />
+                      </div>
+                      <span className="leading-relaxed">{area}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="border-t border-border/40 my-12 lg:my-16 max-w-5xl" />
+        {/* Separator with accent */}
+        <div className="max-w-5xl my-12 lg:my-16 relative">
+          <div className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-primary/20 via-border/40 to-transparent" />
+          {/* Separator dot accent */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary/20" />
+        </div>
 
-        {/* Accountability subsection */}
+        {/* Accountability subsection - elevated panel */}
         <div className="max-w-5xl">
-          <h3 className="font-heading text-xl font-semibold text-foreground mb-8">
-            How We Ensure Accountability
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {accountabilityPoints.map((point, index) => (
-              <p key={index} className="text-muted-foreground leading-relaxed">
-                {point}
-              </p>
-            ))}
+          <div className="bg-card border border-border/40 rounded-2xl p-8 lg:p-10 shadow-subtle relative overflow-hidden">
+            {/* Corner accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none">
+              <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-l from-primary/15 to-transparent" />
+              <div className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-primary/15 to-transparent" />
+              <div className="absolute top-4 right-4 w-8 h-8 border border-primary/10 rounded" />
+            </div>
+            
+            <h3 className="font-heading text-xl font-semibold text-foreground mb-8 flex items-center gap-3">
+              <span className="w-8 h-[2px] bg-primary/30 rounded-full" />
+              How We Ensure Accountability
+            </h3>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {accountabilityPoints.map((point, index) => (
+                <div key={index} className="relative">
+                  {/* Number badge */}
+                  <span className="block text-2xl font-heading font-semibold text-primary/15 mb-2">
+                    {point.number}
+                  </span>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {point.text}
+                  </p>
+                  
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-primary/10 to-transparent mt-4" style={{ marginTop: '16px' }} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
