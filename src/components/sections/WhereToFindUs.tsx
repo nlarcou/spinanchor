@@ -1,14 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 const WhereToFindUs = () => {
   const events = [
-    "IMGL Autumn Conference",
-    "SBC Summit Barcelona",
-    "SiGMA",
-    "iGB Live",
-    "ICE London",
-    "Casino Beats Summit",
+    { 
+      name: "IMGL", 
+      subtitle: "International Masters of Gaming Law",
+      url: "https://www.imgl.org/" 
+    },
+    { 
+      name: "SBC Summit", 
+      subtitle: "Lisbon",
+      url: "https://sbcevents.com/sbc-summit/" 
+    },
+    { 
+      name: "SiGMA", 
+      subtitle: "World",
+      url: "https://sigma.world/" 
+    },
+    { 
+      name: "iGB Live", 
+      subtitle: "Amsterdam",
+      url: "https://www.igblive.com/" 
+    },
+    { 
+      name: "ICE", 
+      subtitle: "Barcelona",
+      url: "https://www.icegaming.com/" 
+    },
+    { 
+      name: "CasinoBeats Summit", 
+      subtitle: "Malta",
+      url: "https://sbcevents.com/casinobeats-summit/" 
+    },
   ];
 
   return (
@@ -24,15 +48,24 @@ const WhereToFindUs = () => {
           </p>
         </div>
 
-        {/* Events - Simple inline list */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        {/* Events Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {events.map((event, index) => (
-            <span
+            <a
               key={index}
-              className="px-5 py-2.5 bg-background border border-border/60 rounded-full text-sm font-medium text-foreground"
+              href={event.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center justify-center p-6 bg-background border border-border/40 rounded-lg hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 text-center"
             >
-              {event}
-            </span>
+              <span className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                {event.name}
+              </span>
+              <span className="text-xs text-muted-foreground mt-1">
+                {event.subtitle}
+              </span>
+              <ExternalLink className="h-3 w-3 text-muted-foreground/50 mt-3 group-hover:text-primary/60 transition-colors" />
+            </a>
           ))}
         </div>
 
