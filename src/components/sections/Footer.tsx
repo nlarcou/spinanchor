@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import nsgsLogo from "@/assets/nsgs-logo.png";
 
@@ -20,17 +19,17 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: "iGaming Compliance Services", href: "/compliance-services" },
-      { name: "iGaming Corporate Services", href: "/corporate-services" },
-      { name: "iGaming License Services", href: "/license-services" },
-      { name: "iGaming Processing Services", href: "/processing-services" },
-      { name: "iGaming Banking Services", href: "/banking-services" }
+      { name: "Compliance Services", href: "/compliance-services" },
+      { name: "Corporate Services", href: "/corporate-services" },
+      { name: "License Services", href: "/license-services" },
+      { name: "Processing Services", href: "/processing-services" },
+      { name: "Banking Services", href: "/banking-services" }
     ],
     company: [
-      { name: "About Us", section: "about" },
-      { name: "Our Team", section: "team" },
+      { name: "About", section: "about" },
+      { name: "Expertise", section: "team" },
       { name: "Jurisdictions", section: "jurisdictions" },
-      { name: "Contact Us", href: "/contact" }
+      { name: "Contact", href: "/contact" }
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy-policy" },
@@ -40,36 +39,35 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground text-background">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-6">
+            <div className="mb-8">
               <img 
                 src={nsgsLogo}
                 alt="NSGS Global"
-                className="h-20 w-auto object-contain"
+                className="h-16 w-auto object-contain brightness-0 invert"
               />
             </div>
-            <p className="text-background/80 mb-6 leading-relaxed">
-              NSGS Global is a specialised iGaming services provider supporting licensing, compliance, payments, banking, and operational setup across regulated markets.
+            <p className="text-background/70 mb-8 leading-relaxed text-sm">
+              Specialised iGaming services provider supporting licensing, compliance, payments, banking, and operational setup across regulated markets.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-3">
-              <a href="mailto:info@nsgs.pro" className="flex items-center text-sm text-background/80 hover:text-secondary transition-colors">
-                <Mail className="h-4 w-4 mr-3 text-primary" />
+            <div className="space-y-3 text-sm">
+              <a href="mailto:info@nsgs.pro" className="flex items-center text-background/70 hover:text-background transition-colors">
+                <Mail className="h-4 w-4 mr-3 flex-shrink-0" />
                 info@nsgs.pro
               </a>
-              <a href="tel:+35796281311" className="flex items-center text-sm text-background/80 hover:text-secondary transition-colors">
-                <Phone className="h-4 w-4 mr-3 text-primary" />
+              <a href="tel:+35796281311" className="flex items-center text-background/70 hover:text-background transition-colors">
+                <Phone className="h-4 w-4 mr-3 flex-shrink-0" />
                 +357 96 281 311
               </a>
-              <div className="flex items-start text-sm text-background/80">
-                <MapPin className="h-4 w-4 mr-3 mt-0.5 text-primary flex-shrink-0" />
+              <div className="flex items-start text-background/70">
+                <MapPin className="h-4 w-4 mr-3 mt-0.5 flex-shrink-0" />
                 <span>
-                  Van Dyke, 6<br />
-                  Solonion Building<br />
+                  Van Dyke, 6, Solonion Building<br />
                   6037, Larnaca, Cyprus
                 </span>
               </div>
@@ -78,13 +76,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-semibold text-background mb-6">Services</h4>
+            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <Link 
                     to={link.href}
-                    className="text-background/80 hover:text-secondary transition-colors text-sm"
+                    className="text-background/70 hover:text-background transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -95,21 +93,21 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-heading font-semibold text-background mb-6">Company</h4>
+            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   {link.href ? (
                     <Link 
                       to={link.href}
-                      className="text-background/80 hover:text-secondary transition-colors text-sm"
+                      className="text-background/70 hover:text-background transition-colors text-sm"
                     >
                       {link.name}
                     </Link>
                   ) : (
                     <button 
                       onClick={() => handleSectionLink(link.section!)}
-                      className="text-background/80 hover:text-secondary transition-colors text-sm text-left"
+                      className="text-background/70 hover:text-background transition-colors text-sm text-left"
                     >
                       {link.name}
                     </button>
@@ -117,15 +115,17 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+          </div>
 
-            {/* Legal Links */}
-            <h4 className="font-heading font-semibold text-background mb-6 mt-8">Legal</h4>
+          {/* Legal */}
+          <div>
+            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <Link 
                     to={link.href}
-                    className="text-background/80 hover:text-secondary transition-colors text-sm"
+                    className="text-background/70 hover:text-background transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -133,57 +133,15 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-heading font-semibold text-background mb-6">Stay Updated</h4>
-            <p className="text-background/80 text-sm mb-4">
-              Get the latest iGaming insights delivered to your inbox.
-            </p>
-            <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-          </div>
         </div>
 
-        <Separator className="my-8 bg-background/20" />
+        <Separator className="my-12 bg-background/10" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-background/80 text-sm mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-background/60 text-sm">
             © {currentYear} NSGS Global. All rights reserved.
-          </div>
-          
-          {/* Social Links */}
-          <div className="flex items-center space-x-4">
-            <a 
-              href="https://linkedin.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-background/80 hover:text-secondary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-background/80 hover:text-secondary transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a 
-              href="https://instagram.com" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-background/80 hover:text-secondary transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
