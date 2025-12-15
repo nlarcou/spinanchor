@@ -45,36 +45,97 @@ const HowWeWork = () => {
           </p>
         </div>
 
-        {/* Steps */}
-        <div className="max-w-4xl">
-          {steps.map((step, index) => (
-            <div key={step.number}>
-              {/* Step row - two columns on desktop */}
-              <div className="grid lg:grid-cols-[200px_1fr] gap-4 lg:gap-12 py-8 lg:py-10">
-                {/* Left: Number and Title */}
-                <div>
-                  <span className="text-3xl lg:text-4xl font-heading font-semibold text-primary/20 block mb-2 lg:mb-3">
-                    {step.number}
-                  </span>
-                  <h3 className="font-heading text-lg font-medium text-foreground leading-snug">
-                    {step.title}
-                  </h3>
+        {/* Steps with visual timeline */}
+        <div className="max-w-5xl">
+          <div className="relative">
+            {/* Timeline connector - vertical line (desktop) */}
+            <div className="hidden lg:block absolute left-[99px] top-8 bottom-8 w-[2px]">
+              {/* Gradient line */}
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/20 to-primary/5" />
+              {/* Animated pulse overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-transparent opacity-50" />
+            </div>
+
+            {steps.map((step, index) => (
+              <div key={step.number} className="relative">
+                {/* Step row */}
+                <div className="grid lg:grid-cols-[200px_1fr] gap-4 lg:gap-12 py-8 lg:py-10">
+                  {/* Left: Timeline node + Number and Title */}
+                  <div className="relative">
+                    {/* Timeline node - positioned on the line */}
+                    <div className="hidden lg:block absolute left-[91px] top-3 z-10">
+                      {/* Outer ring */}
+                      <div className="w-[18px] h-[18px] rounded-full border-2 border-primary/30 bg-background flex items-center justify-center">
+                        {/* Inner dot */}
+                        <div className="w-[8px] h-[8px] rounded-full bg-primary/40" />
+                      </div>
+                    </div>
+                    
+                    {/* Mobile timeline indicator */}
+                    <div className="lg:hidden flex items-center gap-3 mb-3">
+                      <div className="w-[10px] h-[10px] rounded-full border-2 border-primary/40 bg-background flex items-center justify-center">
+                        <div className="w-[4px] h-[4px] rounded-full bg-primary/50" />
+                      </div>
+                      <div className="flex-1 h-[1px] bg-gradient-to-r from-primary/20 to-transparent" />
+                    </div>
+
+                    <span className="text-3xl lg:text-4xl font-heading font-semibold text-primary/20 block mb-2 lg:mb-3">
+                      {step.number}
+                    </span>
+                    <h3 className="font-heading text-lg font-medium text-foreground leading-snug">
+                      {step.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Right: Description with subtle connector */}
+                  <div className="lg:pt-12 relative">
+                    {/* Horizontal connector line (desktop only) */}
+                    <div className="hidden lg:block absolute left-0 top-[52px] w-8 h-[1px] -translate-x-full">
+                      <div className="w-full h-full bg-gradient-to-r from-transparent to-primary/15" />
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
                 
-                {/* Right: Description */}
-                <div className="lg:pt-12">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+                {/* Divider - except after last item */}
+                {index < steps.length - 1 && (
+                  <div className="border-b border-border/40 lg:ml-[120px]" />
+                )}
               </div>
-              
-              {/* Divider - except after last item */}
-              {index < steps.length - 1 && (
-                <div className="border-b border-border/40" />
-              )}
+            ))}
+          </div>
+
+          {/* Process flow summary - abstract visual at bottom */}
+          <div className="mt-16 pt-8 border-t border-border/30">
+            <div className="flex items-center justify-center gap-2 lg:gap-4">
+              {steps.map((step, index) => (
+                <div key={step.number} className="flex items-center">
+                  {/* Step indicator */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border-2 border-primary/20 flex items-center justify-center bg-background">
+                      <span className="text-xs lg:text-sm font-heading font-semibold text-primary/60">
+                        {step.number}
+                      </span>
+                    </div>
+                    <span className="hidden lg:block text-[10px] text-muted-foreground/60 mt-2 max-w-[80px] text-center leading-tight">
+                      {step.title.split(' ').slice(0, 2).join(' ')}
+                    </span>
+                  </div>
+                  
+                  {/* Connector arrow */}
+                  {index < steps.length - 1 && (
+                    <div className="w-6 lg:w-12 h-[2px] mx-1 lg:mx-2 relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10" />
+                      {/* Arrow head */}
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[3px] border-b-[3px] border-l-[5px] border-t-transparent border-b-transparent border-l-primary/20" />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* CTA */}
