@@ -26,7 +26,7 @@ const Navigation = () => {
   ];
 
   const navItems = [
-    { label: "Jurisdictions", href: "#jurisdictions" },
+    { label: "Jurisdictions", href: "/jurisdictions" },
     { label: "How We Work", href: "#how-we-work" },
     { label: "Expertise", href: "#team" },
     { label: "Contact", href: "/contact" },

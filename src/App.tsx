@@ -17,6 +17,7 @@ import BankingServices from "./pages/BankingServices";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import IgamingServices from "./pages/IgamingServices";
+import JurisdictionsPage from "./pages/Jurisdictions";
 import AdminLogin from "./pages/AdminLogin";
 import AdminRequests from "./pages/AdminRequests";
 import AdminUsers from "./pages/AdminUsers";
@@ -58,6 +59,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/igaming-services" element={<IgamingServices />} />
+            <Route path="/jurisdictions" element={<JurisdictionsPage />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/requests" element={<AdminRequests />} />
             <Route path="/admin/users" element={<AdminUsers />} />
