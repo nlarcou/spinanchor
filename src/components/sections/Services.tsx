@@ -1,106 +1,110 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import complianceImage from "@/assets/compliance-services-new.jpg";
-import corporateImage from "@/assets/corporate-services-new.jpg";
-import licenseImage from "@/assets/license-services.jpg";
-import paymentImage from "@/assets/payment-services.jpg";
-import bankingImage from "@/assets/banking-services.jpg";
 
 const Services = () => {
   const services = [
     {
-      title: "iGaming Compliance",
-      description: "Regulatory frameworks, AML and KYC programs, audits, and ongoing compliance operations.",
-      image: complianceImage,
-      link: "/compliance-services"
-    },
-    {
-      title: "iGaming Corporate",
-      description: "Company incorporation, governance, directorship, and tax structuring coordination.",
-      image: corporateImage,
-      link: "/corporate-services"
-    },
-    {
-      title: "iGaming Licensing",
-      description: "License applications, renewals, regulator liaison, and multi-jurisdiction strategies.",
-      image: licenseImage,
+      title: "Licensing and Regulatory Support",
+      description: "License applications, renewals, and regulator liaison across multiple jurisdictions.",
+      capabilities: [
+        "New license applications",
+        "License renewals and variations",
+        "Regulator correspondence"
+      ],
       link: "/license-services"
     },
     {
-      title: "Payments & PSP",
-      description: "Payment gateway integration, PSP onboarding, transaction monitoring, and fraud prevention.",
-      image: paymentImage,
+      title: "Compliance and AML",
+      description: "Regulatory frameworks, AML programmes, and ongoing compliance operations.",
+      capabilities: [
+        "AML and KYC frameworks",
+        "Responsible gaming controls",
+        "Compliance audits"
+      ],
+      link: "/compliance-services"
+    },
+    {
+      title: "Payments and PSP Enablement",
+      description: "Payment gateway integration, PSP onboarding, and transaction infrastructure.",
+      capabilities: [
+        "PSP selection and onboarding",
+        "Payment gateway integration",
+        "Transaction monitoring"
+      ],
       link: "/processing-services"
     },
     {
-      title: "Banking & Treasury",
+      title: "Banking and Treasury Support",
       description: "Merchant account introductions, banking relationships, and financial governance.",
-      image: bankingImage,
+      capabilities: [
+        "Banking introductions",
+        "Merchant account support",
+        "Treasury structuring"
+      ],
       link: "/banking-services"
+    },
+    {
+      title: "Corporate Services",
+      description: "Company incorporation, governance, directorship, and tax coordination.",
+      capabilities: [
+        "Company formation",
+        "Directorship arrangements",
+        "Corporate governance"
+      ],
+      link: "/corporate-services"
     }
   ];
 
   return (
-    <section id="services" className="py-28 lg:py-36 bg-background">
+    <section id="services" className="py-32 lg:py-40 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mb-16 lg:mb-20">
+        <div className="max-w-2xl mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
-            End-to-end iGaming services for regulated markets
+            End-to-end iGaming services
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            From licensing and regulatory compliance to payments, banking, and operational readiness—structured solutions designed to reduce risk and accelerate time to market.
+            Structured solutions across licensing, compliance, payments, and operations—designed to reduce risk and accelerate market entry.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid - 2 columns desktop, 1 mobile */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group border-border/40 overflow-hidden hover:border-border transition-colors duration-300"
+            <Link
+              key={index}
+              to={service.link}
+              className="group block p-8 lg:p-10 bg-background border border-border/50 rounded-xl hover:border-border transition-colors duration-200"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <CardContent className="p-6 space-y-4">
-                <h3 className="font-heading text-lg font-semibold text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {service.description}
-                </p>
-                <Button 
-                  variant="ghost" 
-                  className="p-0 h-auto font-medium text-primary hover:text-primary/80 hover:bg-transparent group/btn"
-                  onClick={() => window.location.href = service.link}
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-              </CardContent>
-            </Card>
+              <h3 className="font-heading text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                {service.description}
+              </p>
+              
+              <ul className="space-y-2">
+                {service.capabilities.map((capability, capIndex) => (
+                  <li key={capIndex} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
+                    {capability}
+                  </li>
+                ))}
+              </ul>
+            </Link>
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 pt-8 border-t border-border/40">
-          <Button 
-            variant="outline"
-            className="font-medium"
-            asChild
+        {/* Section CTA */}
+        <div className="mt-12 pt-8">
+          <Link 
+            to="/igaming-services"
+            className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
           >
-            <Link to="/igaming-services">
-              View all services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+            View all services
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
