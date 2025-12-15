@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Shield } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const Team = () => {
   const expertiseAreas = [
@@ -33,56 +32,50 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
+    <section id="team" className="py-28 lg:py-36 bg-muted/20">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-3xl mb-16 lg:mb-20">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
             Our Expertise and Delivery Model
           </h2>
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed">
             NSGS Global operates through a senior-led delivery model supported by a trusted network of specialised professionals. Our expertise spans iGaming compliance, licensing, payments, corporate services, technology, and legal coordination across multiple jurisdictions. We prioritise discretion, confidentiality, and practical delivery in every engagement.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-border/50 shadow-card mb-8">
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                {expertiseAreas.map((area, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-heading font-semibold text-foreground mb-1">
-                        {area.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {area.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+        {/* Two column layout */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 max-w-6xl">
+          {/* Expertise Areas - Simple stacked layout */}
+          <div className="space-y-8">
+            {expertiseAreas.map((area, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading font-semibold text-foreground mb-2">
+                    {area.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {area.description}
+                  </p>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
 
-          <Card className="border-border/50 shadow-card">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Shield className="h-6 w-6 text-primary" />
-                <h3 className="font-heading text-xl font-semibold text-foreground">
-                  How We Ensure Accountability
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {accountabilityPoints.map((point, index) => (
-                  <li key={index} className="flex items-center gap-3 text-muted-foreground">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+          {/* Accountability Section */}
+          <div className="lg:pt-2">
+            <h3 className="font-heading text-xl font-semibold text-foreground mb-8">
+              How We Ensure Accountability
+            </h3>
+            <ul className="space-y-4">
+              {accountabilityPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

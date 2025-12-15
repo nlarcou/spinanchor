@@ -18,17 +18,17 @@ const Navigation = () => {
   const isHomePage = location.pathname === '/';
 
   const navItems = [
-    { label: "ABOUT", href: "#about" },
-    { label: "TEAM", href: "#team" },
-    { label: "CONTACT", href: "#contact" },
+    { label: "About", href: "#about" },
+    { label: "Expertise", href: "#team" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const services = [
-    { label: "iGaming Compliance Services", href: "/compliance-services" },
-    { label: "iGaming Corporate Services", href: "/corporate-services" },
-    { label: "iGaming License Services", href: "/license-services" },
-    { label: "iGaming Processing Services", href: "/processing-services" },
-    { label: "iGaming Banking Services", href: "/banking-services" },
+    { label: "Compliance Services", href: "/compliance-services" },
+    { label: "Corporate Services", href: "/corporate-services" },
+    { label: "License Services", href: "/license-services" },
+    { label: "Processing Services", href: "/processing-services" },
+    { label: "Banking Services", href: "/banking-services" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -46,39 +46,41 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
-      <div className="container mx-auto px-4">
+    <nav className="bg-background border-b border-border/40 sticky top-0 z-50">
+      <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
             <img 
               src={nsgsLogo}
-              alt="NSGS Global - Next Step Gaming Services"
-              className="h-[85px] w-auto drop-shadow-sm hover:drop-shadow-md transition-all duration-300"
+              alt="NSGS Global"
+              className="h-14 w-auto"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => navigate('/')}
-              className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              HOME
+              Home
             </button>
             
             {/* Services Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-sm font-semibold text-foreground hover:text-primary transition-colors flex items-center gap-1 outline-none">
-                SERVICES
+              <DropdownMenuTrigger className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-1 outline-none">
+                Services
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white border-border min-w-[250px]">
+              <DropdownMenuContent className="bg-background border-border min-w-[220px] z-50">
                 {services.map((service) => (
-                  <DropdownMenuItem key={service.label} onSelect={() => navigate(service.href)}>
-                    <span className="text-foreground cursor-pointer">
-                      {service.label}
-                    </span>
+                  <DropdownMenuItem 
+                    key={service.label} 
+                    onSelect={() => navigate(service.href)}
+                    className="cursor-pointer"
+                  >
+                    {service.label}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -88,7 +90,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </button>
@@ -96,10 +98,10 @@ const Navigation = () => {
 
             <Button 
               variant="accent"
-              className="font-semibold shadow-elegant"
+              className="font-medium ml-4"
               onClick={() => navigate('/contact')}
             >
-              GET STARTED
+              Get Started
             </Button>
           </div>
 
@@ -107,9 +109,9 @@ const Navigation = () => {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground hover:text-primary"
+              className="text-foreground"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -118,24 +120,24 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-white">
-            <div className="flex flex-col space-y-3">
+          <div className="md:hidden py-6 border-t border-border/40 bg-background">
+            <div className="flex flex-col space-y-4">
               <button
                 onClick={() => { navigate('/'); setIsMenuOpen(false); }}
-                className="text-sm font-semibold text-foreground hover:text-primary transition-colors px-2 py-1 text-left"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left py-2"
               >
-                HOME
+                Home
               </button>
               
               {/* Mobile Services */}
-              <div className="px-2">
-                <div className="text-sm font-semibold text-foreground mb-2">SERVICES</div>
-                <div className="flex flex-col space-y-2 pl-4">
+              <div>
+                <div className="text-sm font-medium text-foreground mb-3">Services</div>
+                <div className="flex flex-col space-y-2 pl-4 border-l border-border/40">
                   {services.map((service) => (
                     <button
                       key={service.label}
                       onClick={() => { navigate(service.href); setIsMenuOpen(false); }}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-1"
                     >
                       {service.label}
                     </button>
@@ -147,7 +149,7 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-sm font-semibold text-foreground hover:text-primary transition-colors px-2 py-1 text-left"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left py-2"
                 >
                   {item.label}
                 </button>
@@ -155,10 +157,10 @@ const Navigation = () => {
 
               <Button 
                 variant="accent"
-                className="font-semibold shadow-elegant mx-2 mt-2"
+                className="font-medium mt-4 w-full"
                 onClick={() => { navigate('/contact'); setIsMenuOpen(false); }}
               >
-                GET STARTED
+                Get Started
               </Button>
             </div>
           </div>
