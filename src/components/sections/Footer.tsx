@@ -43,13 +43,13 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="mb-8">
+            <Link to="/" className="mb-8 block">
               <img 
                 src={nsgsLogo}
                 alt="NSGS Global"
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-12 w-auto object-contain brightness-0 invert"
               />
-            </div>
+            </Link>
             <p className="text-background/70 mb-8 leading-relaxed text-sm">
               Specialised iGaming services provider supporting licensing, compliance, payments, banking, and operational setup across regulated markets.
             </p>
@@ -67,7 +67,8 @@ const Footer = () => {
               <div className="flex items-start text-background/70">
                 <MapPin className="h-4 w-4 mr-3 mt-0.5 flex-shrink-0" />
                 <span>
-                  Van Dyke, 6, Solonion Building<br />
+                  Van Dyke, 6<br />
+                  Solonion Building<br />
                   6037, Larnaca, Cyprus
                 </span>
               </div>
