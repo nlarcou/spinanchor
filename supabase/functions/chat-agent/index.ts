@@ -72,9 +72,19 @@ serve(async (req) => {
   try {
     const { message, userEmail, userName } = await req.json();
     
+    const MAX_MESSAGE_LENGTH = 2000;
+    
     if (!message || typeof message !== "string" || message.trim().length === 0) {
       return new Response(
         JSON.stringify({ error: "Message is required" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      console.log("Message rejected: too long", message.length);
+      return new Response(
+        JSON.stringify({ error: `Message is too long. Maximum length is ${MAX_MESSAGE_LENGTH} characters.` }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
