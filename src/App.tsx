@@ -22,6 +22,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminRequests from "./pages/AdminRequests";
 import AdminUsers from "./pages/AdminUsers";
 import NotFound from "./pages/NotFound";
+import Events from "./pages/Events";
 
 const FloatingButtons = () => {
   const location = useLocation();
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/igaming-services" element={<IgamingServices />} />
             <Route path="/jurisdictions" element={<JurisdictionsPage />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/requests" element={<AdminRequests />} />
             <Route path="/admin/users" element={<AdminUsers />} />
