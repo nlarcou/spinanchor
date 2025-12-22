@@ -7,6 +7,7 @@ import HowWeWork from "@/components/sections/HowWeWork";
 import WhereToFindUs from "@/components/sections/WhereToFindUs";
 import Team from "@/components/sections/Team";
 import Contact from "@/components/sections/Contact";
+import FAQ from "@/components/sections/FAQ";
 import Footer from "@/components/sections/Footer";
 
 const Index = () => {
@@ -21,6 +22,7 @@ const Index = () => {
       <WhereToFindUs />
       <Team />
       <Contact />
+      <FAQ />
       <Footer />
     </div>
   );
