@@ -51,19 +51,26 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center">
           {/* Content */}
           <div className="max-w-xl">
-            {/* Eyebrow */}
-            <p className="text-xs sm:text-sm text-muted-foreground tracking-wide mb-4 sm:mb-6">
-              Trusted iGaming Services Partner
-            </p>
-            
             {/* H1 Headline */}
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-foreground leading-[1.15] tracking-tight mb-5 sm:mb-8">
-              Launch and scale your iGaming operation with confidence
+              Your Next Step to Global Gaming Success
             </h1>
             
             {/* Supporting paragraph */}
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-10">
-              Licensing, compliance, payments, and operational setup across key jurisdictions. From application to go-live, we handle the complexities so you can focus on growth.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+              NSGS Global delivers comprehensive, end-to-end iGaming and gambling solutions.
+            </p>
+            
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+              Leverage our years of expertise and solid global contacts to cover every critical step, connect you with reliable sources and shorten your time to market. We handle:
+            </p>
+            
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4">
+              Corporate Structure • Legal Advice and legal opinions • Multi-Jurisdictional Licensing • Banking & Processing • Platform Setup • Operations & Compliance cost savings on a wide range of services from processing aggregation to game aggregation and software development.
+            </p>
+            
+            <p className="text-base sm:text-lg text-foreground font-medium leading-relaxed mb-6 sm:mb-10">
+              We are a powerhouse—fast, exceptionally well-connected, and laser-focused on your results.
             </p>
             
             {/* CTAs - stack on mobile with proper spacing */}
