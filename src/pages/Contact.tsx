@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Loader2 } from "lucide-react";
 import Navigation from "@/components/ui/navigation";
 import Footer from "@/components/sections/Footer";
+import FAQ from "@/components/sections/FAQ";
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
@@ -39,21 +34,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const faqs = [
-    {
-      question: "Confidentiality and NDA",
-      answer: "All inquiries are treated as confidential by default. We are happy to sign a mutual NDA before any detailed discussions if preferred. Your business information is never shared with third parties."
-    },
-    {
-      question: "Typical response time",
-      answer: "We aim to respond to all inquiries within one business day. For urgent matters, please indicate this in your message and we will prioritise accordingly."
-    },
-    {
-      question: "What information to include",
-      answer: "To help us understand your needs, please include your business model, target jurisdictions, current status (new venture or existing operation), and any specific challenges you are facing."
-    }
-  ];
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
@@ -292,32 +272,12 @@ const Contact = () => {
                 </Button>
               </form>
 
-              {/* FAQ Accordion */}
-              <div className="mt-12 pt-8 border-t border-border/40">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-6">
-                  Common questions
-                </h3>
-                <Accordion type="single" collapsible className="space-y-3">
-                  {faqs.map((faq, index) => (
-                    <AccordionItem 
-                      key={index} 
-                      value={`item-${index}`}
-                      className="border border-border/40 rounded-lg px-5 bg-background"
-                    >
-                      <AccordionTrigger className="text-left text-sm font-medium text-foreground hover:no-underline py-4">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <FAQ variant="compact" />
 
       <Footer />
     </div>
