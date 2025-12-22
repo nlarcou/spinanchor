@@ -1,41 +1,45 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import nsgsLogo from "@/assets/nsgs-logo.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+  const [hoveredGroup, setHoveredGroup] = useState<string | null>(null);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const serviceGroups = [
     {
-      name: "Corporate",
+      name: "iGaming Compliance Services",
+      href: "/compliance-services",
       items: [
-        { label: "iGaming Company Incorporation", href: "/corporate-services" },
+        { label: "Client Due Diligence (CDD) & Know Your Client (KYC)", href: "/compliance-services" },
+        { label: "Policies & Procedures", href: "/compliance-services" },
+        { label: "Regulatory Compliance", href: "/compliance-services" },
+        { label: "Risk Management", href: "/compliance-services" },
+        { label: "AML Health Checks", href: "/compliance-services" },
+      ],
+    },
+    {
+      name: "iGaming Corporate Services",
+      href: "/corporate-services",
+      items: [
+        { label: "Company Incorporation", href: "/corporate-services" },
         { label: "Trust Company Formation", href: "/corporate-services" },
-        { label: "Corporate & Maintenance Services", href: "/corporate-services" },
+        { label: "Corporate Maintenance", href: "/corporate-services" },
       ],
     },
     {
-      name: "Regulatory",
+      name: "iGaming License Services",
+      href: "/license-services",
       items: [
-        { label: "iGaming Licensing Services", href: "/license-services" },
-        { label: "iGaming Compliance Services", href: "/compliance-services" },
-      ],
-    },
-    {
-      name: "Financial Infrastructure",
-      items: [
-        { label: "iGaming Banking Services", href: "/banking-services" },
-        { label: "iGaming Processing Services", href: "/processing-services" },
+        { label: "License Application Support", href: "/license-services" },
+        { label: "License Acquisition", href: "/license-services" },
+        { label: "License Maintenance", href: "/license-services" },
       ],
     },
   ];
@@ -61,6 +65,7 @@ const Navigation = () => {
       navigate(href);
     }
     setIsMenuOpen(false);
+    setIsServicesOpen(false);
   };
 
   const toggleMobileGroup = (groupName: string) => {
@@ -93,34 +98,61 @@ const Navigation = () => {
               Home
             </button>
 
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1 outline-none rounded-md hover:bg-muted/50 focus-visible:ring-2 focus-visible:ring-primary/20">
-                Services
-                <ChevronDown className="h-3.5 w-3.5 opacity-60" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                className="bg-background border-border/60 min-w-[320px] z-50 shadow-lg p-2"
-                align="start"
+            {/* Services Mega Menu */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => { setIsServicesOpen(false); setHoveredGroup(null); }}
+            >
+              <button 
+                className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1 rounded-md hover:bg-muted/50"
               >
-                {serviceGroups.map((group, groupIndex) => (
-                  <div key={group.name} className={groupIndex > 0 ? "mt-3 pt-3 border-t border-border/30" : ""}>
-                    <div className="px-3 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                      {group.name}
+                Services
+                <ChevronDown className={`h-3.5 w-3.5 opacity-60 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 pt-1">
+                  <div className="flex bg-background border border-border/60 rounded-md shadow-lg overflow-hidden">
+                    {/* Main menu - service groups */}
+                    <div className="min-w-[260px] py-2 border-r border-border/30">
+                      {serviceGroups.map((group) => (
+                        <button
+                          key={group.name}
+                          onMouseEnter={() => setHoveredGroup(group.name)}
+                          onClick={() => { navigate(group.href); setIsServicesOpen(false); }}
+                          className={`w-full text-left px-4 py-3 text-sm flex items-center justify-between transition-colors ${
+                            hoveredGroup === group.name 
+                              ? 'bg-muted text-foreground' 
+                              : 'text-foreground/80 hover:bg-muted/50 hover:text-foreground'
+                          }`}
+                        >
+                          {group.name}
+                          <ChevronRight className="h-4 w-4 opacity-50" />
+                        </button>
+                      ))}
                     </div>
-                    {group.items.map((item) => (
-                      <button
-                        key={item.label}
-                        onClick={() => navigate(item.href)}
-                        className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-muted/50 rounded-md transition-colors"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+
+                    {/* Sub-menu - items for hovered group */}
+                    {hoveredGroup && (
+                      <div className="min-w-[280px] py-2 bg-muted/30">
+                        {serviceGroups
+                          .find(g => g.name === hoveredGroup)
+                          ?.items.map((item) => (
+                            <button
+                              key={item.label}
+                              onClick={() => { navigate(item.href); setIsServicesOpen(false); }}
+                              className="w-full text-left px-4 py-2.5 text-sm text-foreground/80 hover:bg-muted hover:text-foreground transition-colors"
+                            >
+                              {item.label}
+                            </button>
+                          ))}
+                      </div>
+                    )}
                   </div>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </div>
+              )}
+            </div>
 
             {/* Other nav items */}
             {navItems.slice(1).map((item) => (
@@ -191,20 +223,28 @@ const Navigation = () => {
                 {expandedGroup === 'services' && (
                   <div className="bg-muted/20 pb-2">
                     {serviceGroups.map((group) => (
-                      <div key={group.name} className="py-2">
-                        <div className="px-6 py-1.5 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      <div key={group.name} className="py-1">
+                        <button
+                          onClick={() => toggleMobileGroup(group.name)}
+                          className="w-full px-6 py-2.5 text-sm font-medium text-foreground/90 hover:bg-muted/50 transition-colors text-left flex items-center justify-between min-h-[44px]"
+                        >
                           {group.name}
-                        </div>
-                        {group.items.map((item) => (
-                          <button
-                            key={item.label}
-                            onClick={() => { navigate(item.href); setIsMenuOpen(false); }}
-                            className="w-full px-8 py-2.5 text-sm text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors text-left flex items-center gap-2 min-h-[44px]"
-                          >
-                            <ChevronRight className="h-3 w-3 opacity-40" />
-                            {item.label}
-                          </button>
-                        ))}
+                          <ChevronDown className={`h-3.5 w-3.5 opacity-60 transition-transform ${expandedGroup === group.name ? 'rotate-180' : ''}`} />
+                        </button>
+                        {expandedGroup === group.name && (
+                          <div className="bg-muted/30">
+                            {group.items.map((item) => (
+                              <button
+                                key={item.label}
+                                onClick={() => { navigate(item.href); setIsMenuOpen(false); }}
+                                className="w-full px-8 py-2.5 text-sm text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-colors text-left flex items-center gap-2 min-h-[44px]"
+                              >
+                                <ChevronRight className="h-3 w-3 opacity-40 flex-shrink-0" />
+                                {item.label}
+                              </button>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
