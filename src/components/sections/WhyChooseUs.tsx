@@ -27,32 +27,32 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-background">
+    <section id="about" className="relative py-12 sm:py-16 lg:py-32 bg-background">
       {/* Top border for separation */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Subtle dot pattern */}
       <div className="absolute inset-0 bg-dot-pattern pointer-events-none opacity-60" />
       {/* Corner accent */}
       <div className="absolute inset-0 bg-corner-accent pointer-events-none opacity-70" />
-      <div className="container mx-auto px-6 lg:px-8 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
+        <div className="max-w-3xl mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-4 sm:mb-6 leading-tight">
             Why clients choose NSGS Global
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             iGaming businesses choose us for our practical approach, jurisdictional knowledge, and ability to deliver across compliance, payments, and operations.
           </p>
         </div>
 
         {/* Reasons - Simple stacked layout */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 max-w-5xl">
+        <div className="grid md:grid-cols-2 gap-x-8 sm:gap-x-16 gap-y-5 sm:gap-y-8 max-w-5xl">
           {reasons.map((reason, index) => (
             <div key={index}>
-              <h3 className="font-heading font-semibold text-foreground mb-2">
+              <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-1.5 sm:mb-2">
                 {reason.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 {reason.description}
               </p>
             </div>

@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-igaming.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[85vh] flex items-center bg-background overflow-hidden">
+    <section id="home" className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center bg-background overflow-hidden">
       {/* Layered background elements */}
       {/* Primary gradient - soft blue glow from top-right */}
       <div 
@@ -23,8 +23,8 @@ const Hero = () => {
         }}
       />
       
-      {/* Geometric accent lines */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Geometric accent lines - hidden on mobile */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         {/* Diagonal line accent */}
         <div 
           className="absolute top-[10%] right-[5%] w-[400px] h-[1px] bg-gradient-to-r from-transparent via-primary/10 to-transparent"
@@ -47,22 +47,22 @@ const Hero = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none opacity-60" />
       
-      <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-24 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center">
           {/* Content */}
           <div className="max-w-xl">
             {/* Eyebrow */}
-            <p className="text-sm text-muted-foreground tracking-wide mb-6">
+            <p className="text-xs sm:text-sm text-muted-foreground tracking-wide mb-4 sm:mb-6">
               Trusted iGaming Services Partner
             </p>
             
             {/* H1 Headline */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-foreground leading-[1.1] tracking-tight mb-8">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-semibold text-foreground leading-[1.15] tracking-tight mb-5 sm:mb-8">
               Launch and scale your iGaming operation with confidence
             </h1>
             
             {/* Supporting paragraph */}
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-10">
               Licensing, compliance, payments, and operational setup across key jurisdictions. From application to go-live, we handle the complexities so you can focus on growth.
             </p>
             
@@ -114,19 +114,19 @@ const Hero = () => {
 
       {/* Statistics strip - de-emphasized, below hero content */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-border/50 bg-card/50 backdrop-blur-sm">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex flex-wrap justify-start gap-12 lg:gap-16 py-6">
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-semibold text-foreground">50+</span>
-              <span className="text-sm text-muted-foreground">businesses supported</span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-start gap-4 sm:gap-8 lg:gap-16 py-4 sm:py-6">
+            <div className="flex items-baseline gap-1.5 sm:gap-2">
+              <span className="text-lg sm:text-xl font-semibold text-foreground">50+</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">businesses supported</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-semibold text-foreground">15+</span>
-              <span className="text-sm text-muted-foreground">jurisdictions covered</span>
+            <div className="flex items-baseline gap-1.5 sm:gap-2">
+              <span className="text-lg sm:text-xl font-semibold text-foreground">15+</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">jurisdictions covered</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-semibold text-foreground">High</span>
-              <span className="text-sm text-muted-foreground">completion rate</span>
+            <div className="flex items-baseline gap-1.5 sm:gap-2">
+              <span className="text-lg sm:text-xl font-semibold text-foreground">High</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">completion rate</span>
             </div>
           </div>
         </div>

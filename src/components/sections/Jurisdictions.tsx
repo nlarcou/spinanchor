@@ -114,7 +114,7 @@ const Jurisdictions = () => {
   ];
 
   return (
-    <section id="jurisdictions" className="relative py-24 lg:py-32 bg-muted/20 overflow-hidden">
+    <section id="jurisdictions" className="relative py-12 sm:py-16 lg:py-32 bg-muted/20 overflow-hidden">
       {/* Top border for separation */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Abstract geographic pattern */}
@@ -123,46 +123,46 @@ const Jurisdictions = () => {
       {/* Radial glow - reduced opacity for balance */}
       <div className="absolute inset-0 bg-radial-glow pointer-events-none opacity-60" />
       
-      <div className="container mx-auto px-6 lg:px-8 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header with subtle accent line */}
-        <div className="max-w-2xl mb-6 relative">
-          {/* Decorative line */}
-          <div className="absolute -left-4 lg:-left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/20 via-primary/10 to-transparent" />
+        <div className="max-w-2xl mb-4 sm:mb-6 relative">
+          {/* Decorative line - hidden on mobile */}
+          <div className="absolute -left-4 lg:-left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/20 via-primary/10 to-transparent hidden sm:block" />
           
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-4 sm:mb-6 leading-tight">
             Jurisdictions we support
           </h2>
         </div>
 
         {/* Advisory line */}
-        <p className="text-muted-foreground mb-12 max-w-2xl">
+        <p className="text-sm sm:text-base text-muted-foreground mb-8 sm:mb-12 max-w-2xl">
           Choosing the right jurisdiction impacts licensing, compliance, and payments.
         </p>
 
-        {/* Jurisdictions Grid - 3 columns desktop, 1 mobile */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative">
+        {/* Jurisdictions Grid - 3 columns desktop, 2 tablet, 1 mobile */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 relative">
           {jurisdictions.map((jurisdiction, index) => (
             <div
               key={index}
-              className="group relative p-6 lg:p-7 bg-card border border-border/40 rounded-xl shadow-subtle hover:shadow-card hover:border-primary/20 transition-all duration-200"
+              className="group relative p-5 sm:p-6 lg:p-7 bg-card border border-border/40 rounded-xl shadow-subtle hover:shadow-card hover:border-primary/20 transition-all duration-200"
             >
-              {/* Subtle corner accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden rounded-tr-xl pointer-events-none">
+              {/* Subtle corner accent - hidden on mobile */}
+              <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden rounded-tr-xl pointer-events-none hidden sm:block">
                 <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-primary/15 to-transparent" />
                 <div className="absolute top-0 right-0 w-8 h-[1px] bg-gradient-to-l from-primary/15 to-transparent" />
               </div>
               
-              <h3 className="font-heading text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h3 className="font-heading text-sm sm:text-base font-semibold text-foreground mb-1.5 sm:mb-2 group-hover:text-primary transition-colors">
                 {jurisdiction.name}
               </h3>
               
-              <p className="text-sm text-primary font-medium mb-4">
+              <p className="text-xs sm:text-sm text-primary font-medium mb-3 sm:mb-4">
                 {jurisdiction.bestFor}
               </p>
               
-              <ul className="space-y-1.5">
+              <ul className="space-y-1 sm:space-y-1.5">
                 {jurisdiction.details.map((detail, detailIndex) => (
-                  <li key={detailIndex} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                  <li key={detailIndex} className="flex items-center gap-2 sm:gap-2.5 text-xs sm:text-sm text-muted-foreground">
                     <span className="w-1 h-1 rounded-full bg-primary/40 flex-shrink-0" />
                     {detail}
                   </li>
@@ -173,10 +173,10 @@ const Jurisdictions = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 pt-8">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8">
           <Link 
             to="/contact?service=jurisdiction"
-            className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+            className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group min-h-[44px]"
           >
             Discuss jurisdiction selection
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

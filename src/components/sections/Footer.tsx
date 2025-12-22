@@ -41,28 +41,28 @@ const Footer = () => {
     <footer className="relative bg-foreground text-background">
       {/* Top gradient border for smooth transition */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-background/20 to-transparent" />
-      <div className="container mx-auto px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-4 gap-12 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-16">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="mb-8 block">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link to="/" className="mb-6 sm:mb-8 block">
               <img 
                 src={nsgsLogo}
                 alt="NSGS Global"
-                className="h-12 w-auto object-contain"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>
-            <p className="text-background/70 mb-8 leading-relaxed text-sm">
+            <p className="text-background/70 mb-6 sm:mb-8 leading-relaxed text-xs sm:text-sm">
               Specialised iGaming services provider supporting licensing, compliance, payments, banking, and operational setup across regulated markets.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-3 text-sm">
-              <a href="mailto:info@nsgs.pro" className="flex items-center text-background/70 hover:text-background transition-colors">
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+              <a href="mailto:info@nsgs.pro" className="flex items-center text-background/70 hover:text-background transition-colors min-h-[44px] sm:min-h-0">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0" />
                 info@nsgs.pro
               </a>
-              <a href="tel:+35796281311" className="flex items-center text-background/70 hover:text-background transition-colors">
+              <a href="tel:+35796281311" className="flex items-center text-background/70 hover:text-background transition-colors min-h-[44px] sm:min-h-0">
                 <Phone className="h-4 w-4 mr-3 flex-shrink-0" />
                 +357 96 281 311
               </a>
@@ -79,13 +79,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading font-semibold text-background mb-4 sm:mb-6 text-xs sm:text-sm">Services</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
                   <Link 
                     to={link.href}
-                    className="text-background/70 hover:text-background transition-colors text-sm"
+                    className="text-background/70 hover:text-background transition-colors text-xs sm:text-sm min-h-[44px] sm:min-h-0 flex items-center"
                   >
                     {link.name}
                   </Link>
@@ -96,21 +96,21 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading font-semibold text-background mb-4 sm:mb-6 text-xs sm:text-sm">Company</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
                   {link.href ? (
                     <Link 
                       to={link.href}
-                      className="text-background/70 hover:text-background transition-colors text-sm"
+                      className="text-background/70 hover:text-background transition-colors text-xs sm:text-sm min-h-[44px] sm:min-h-0 flex items-center"
                     >
                       {link.name}
                     </Link>
                   ) : (
                     <button 
                       onClick={() => handleSectionLink(link.section!)}
-                      className="text-background/70 hover:text-background transition-colors text-sm text-left"
+                      className="text-background/70 hover:text-background transition-colors text-xs sm:text-sm text-left min-h-[44px] sm:min-h-0 flex items-center"
                     >
                       {link.name}
                     </button>
@@ -122,13 +122,13 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-heading font-semibold text-background mb-6 text-sm">Legal</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading font-semibold text-background mb-4 sm:mb-6 text-xs sm:text-sm">Legal</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <Link 
                     to={link.href}
-                    className="text-background/70 hover:text-background transition-colors text-sm"
+                    className="text-background/70 hover:text-background transition-colors text-xs sm:text-sm min-h-[44px] sm:min-h-0 flex items-center"
                   >
                     {link.name}
                   </Link>
@@ -138,11 +138,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <Separator className="my-12 bg-background/10" />
+        <Separator className="my-8 sm:my-12 bg-background/10" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/60 text-sm">
+          <p className="text-background/60 text-xs sm:text-sm text-center md:text-left">
             © {currentYear} NSGS Global. All rights reserved.
           </p>
         </div>
