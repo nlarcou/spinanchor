@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2 } from "lucide-react";
+import { Loader2, Mail } from "lucide-react";
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
@@ -16,6 +16,10 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, 'Message is required').max(2000),
 });
 
+// Rate limiting: minimum seconds between submissions
+const MIN_SUBMIT_INTERVAL = 5;
+const LAST_SUBMIT_KEY = 'nsgs_last_submit';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -25,6 +29,8 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formLoadTime] = useState(() => Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
   const handleChange = (field: string, value: string) => {
@@ -34,6 +40,41 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Honeypot check - if filled, it's a bot
+    if (honeypotRef.current && honeypotRef.current.value) {
+      // Silently reject but show success to fool bots
+      toast({
+        title: 'Message sent',
+        description: "We'll be in touch shortly.",
+      });
+      return;
+    }
+
+    // Time-based bot detection - form filled too quickly (< 2 seconds)
+    const timeOnForm = Date.now() - formLoadTime;
+    if (timeOnForm < 2000) {
+      toast({
+        title: 'Please slow down',
+        description: 'Please take a moment to fill out the form.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Rate limiting - check last submission time
+    const lastSubmit = localStorage.getItem(LAST_SUBMIT_KEY);
+    if (lastSubmit) {
+      const secondsSinceLastSubmit = (Date.now() - parseInt(lastSubmit, 10)) / 1000;
+      if (secondsSinceLastSubmit < MIN_SUBMIT_INTERVAL) {
+        toast({
+          title: 'Please wait',
+          description: `You can submit again in ${Math.ceil(MIN_SUBMIT_INTERVAL - secondsSinceLastSubmit)} seconds.`,
+          variant: 'destructive',
+        });
+        return;
+      }
+    }
+
     const validation = contactSchema.safeParse(formData);
     if (!validation.success) {
       toast({
@@ -60,10 +101,13 @@ const Contact = () => {
     if (error) {
       toast({
         title: 'Something went wrong',
-        description: 'Please try again or email us directly.',
+        description: 'Please try again later.',
         variant: 'destructive',
       });
     } else {
+      // Record submission time for rate limiting
+      localStorage.setItem(LAST_SUBMIT_KEY, Date.now().toString());
+      
       toast({
         title: 'Message sent',
         description: "We'll be in touch shortly.",
@@ -77,6 +121,13 @@ const Contact = () => {
       });
     }
   };
+
+  // Obfuscated email - renders as text, not clickable
+  const ObfuscatedEmail = () => (
+    <span className="text-sm sm:text-base text-foreground select-none">
+      info <span className="text-muted-foreground/60">[at]</span> nsgs <span className="text-muted-foreground/60">[dot]</span> pro
+    </span>
+  );
 
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-32 bg-muted/10 relative overflow-hidden">
@@ -118,8 +169,12 @@ const Contact = () => {
 
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-10">
               <div className="group">
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground/70 mb-1 sm:mb-1.5">Email</p>
-                <p className="text-sm sm:text-base text-foreground group-hover:text-primary transition-colors">info@nsgs.pro</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground/70 mb-1 sm:mb-1.5 flex items-center gap-1.5">
+                  <Mail className="h-3 w-3" />
+                  Email
+                </p>
+                <ObfuscatedEmail />
+                <p className="text-[10px] text-muted-foreground/60 mt-1">Use the form for fastest response</p>
               </div>
               <div className="group">
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground/70 mb-1 sm:mb-1.5">Phone</p>
@@ -152,6 +207,19 @@ const Contact = () => {
               <div className="absolute top-0 left-5 sm:left-8 right-5 sm:right-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
               
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                {/* Honeypot field - hidden from real users, bots will fill it */}
+                <div className="absolute -left-[9999px] top-0 opacity-0 pointer-events-none" aria-hidden="true">
+                  <label htmlFor="website_url">Website URL</label>
+                  <input
+                    type="text"
+                    id="website_url"
+                    name="website_url"
+                    ref={honeypotRef}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
                   <div className="space-y-1.5 sm:space-y-2">
                     <Label htmlFor="firstName" className="text-xs sm:text-sm font-normal">
