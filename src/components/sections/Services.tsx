@@ -107,41 +107,41 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-muted/10">
+    <section id="services" className="relative py-12 sm:py-16 lg:py-32 bg-muted/10">
       {/* Subtle top border for separation */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       {/* Subtle radial glow from top */}
       <div className="absolute inset-0 bg-radial-glow pointer-events-none opacity-70" />
-      <div className="container mx-auto px-6 lg:px-8 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-6 leading-tight">
+        <div className="max-w-3xl mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground mb-4 sm:mb-6 leading-tight">
             End-to-end iGaming services
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             Structured solutions across licensing, compliance, payments, and operations—designed to reduce risk and accelerate market entry.
           </p>
         </div>
 
         {/* Services Grid - 2 columns desktop, 1 mobile */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Link
               key={index}
               to={service.link}
-              className="group relative block p-8 lg:p-10 bg-card border border-border/50 rounded-xl hover:border-primary/30 hover:shadow-card transition-all duration-200 overflow-hidden"
+              className="group relative block p-5 sm:p-6 lg:p-10 bg-card border border-border/50 rounded-xl hover:border-primary/30 hover:shadow-card transition-all duration-200 overflow-hidden"
             >
               {/* Abstract geometric accent */}
-              <div className="absolute top-6 right-6 opacity-70 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 opacity-70 group-hover:opacity-100 transition-opacity">
                 <ServiceAccent variant={index} />
               </div>
               
-              <div className="pr-12">
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <div className="pr-10 sm:pr-12">
+                <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
                   {service.description}
                 </p>
               </div>
@@ -159,10 +159,10 @@ const Services = () => {
         </div>
 
         {/* Section CTA */}
-        <div className="mt-12 pt-8">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8">
           <Link 
             to="/igaming-services"
-            className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+            className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors group min-h-[44px]"
           >
             View all services
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
