@@ -66,12 +66,12 @@ const Hero = () => {
               Licensing, compliance, payments, and operational setup across key jurisdictions. From application to go-live, we handle the complexities so you can focus on growth.
             </p>
             
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            {/* CTAs - stack on mobile with proper spacing */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
               <Button 
                 variant="accent"
                 size="lg"
-                className="font-medium px-8"
+                className="font-medium px-6 sm:px-8 w-full sm:w-auto justify-center"
                 asChild
               >
                 <Link to="/contact?service=discovery">
@@ -83,7 +83,7 @@ const Hero = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="font-medium px-8"
+                className="font-medium px-6 sm:px-8 w-full sm:w-auto justify-center"
                 asChild
               >
                 <Link to="/contact">
