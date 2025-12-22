@@ -24,6 +24,7 @@ import AdminUsers from "./pages/AdminUsers";
 import NotFound from "./pages/NotFound";
 import Events from "./pages/Events";
 import NewsInsights from "./pages/NewsInsights";
+import Careers from "./pages/Careers";
 
 const FloatingButtons = () => {
   const location = useLocation();
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="/jurisdictions" element={<JurisdictionsPage />} />
             <Route path="/events" element={<Events />} />
             <Route path="/news-insights" element={<NewsInsights />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/requests" element={<AdminRequests />} />
             <Route path="/admin/users" element={<AdminUsers />} />
